@@ -20,8 +20,8 @@ interface SectionProps {
 
 function Section({ id, title, children }: SectionProps) {
   return (
-    <section id={id} className="py-12 md:py-16 border-t border-border">
-      <h2 className="text-sm text-muted-foreground mb-6">{title}</h2>
+    <section id={id} className="py-12 md:py-16 border-t border-border/50">
+      <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-6">{title}</h2>
       <div className="prose prose-neutral max-w-none">{children}</div>
     </section>
   );
@@ -50,9 +50,9 @@ export function CaseStudyLayout({
         {/* Back Link */}
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors duration-200 mb-8 group"
         >
-          <ArrowLeft size={16} />
+          <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
           Back to projects
         </Link>
 
@@ -62,7 +62,7 @@ export function CaseStudyLayout({
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded"
+                className="text-xs px-2.5 py-1 bg-muted text-muted-foreground rounded-sm border border-border/50"
               >
                 {tag}
               </span>
@@ -82,26 +82,26 @@ export function CaseStudyLayout({
           {/* Main Content */}
           <div>
             {/* Project Image Placeholder */}
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center text-muted-foreground/40 mb-12">
+            <div className="aspect-video bg-card border border-border/50 rounded-sm flex items-center justify-center text-muted-foreground/40 mb-12">
               {project.title} - Hero Image
             </div>
 
             {/* Quick Stats */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-border mb-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-border/50 mb-8">
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Role</p>
+                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-1">Role</p>
                 <p className="text-sm text-foreground">{project.role}</p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Team</p>
+                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-1">Team</p>
                 <p className="text-sm text-foreground">{project.team}</p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Timeline</p>
+                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-1">Timeline</p>
                 <p className="text-sm text-foreground">{project.timeline}</p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Tools</p>
+                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-1">Tools</p>
                 <p className="text-sm text-foreground">
                   {project.tools.join(", ")}
                 </p>
@@ -109,15 +109,15 @@ export function CaseStudyLayout({
             </div>
 
             {/* Key Outcomes */}
-            <div className="py-8 bg-secondary/50 rounded-lg px-6 mb-8">
-              <p className="text-xs text-muted-foreground mb-4">Key Outcomes</p>
+            <div className="py-8 bg-card border border-border/50 rounded-sm px-6 mb-8">
+              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">Key Outcomes</p>
               <ul className="space-y-2">
                 {project.outcomes.map((outcome, i) => (
                   <li
                     key={i}
                     className="text-sm text-foreground flex items-start gap-2"
                   >
-                    <span className="text-muted-foreground mt-1">•</span>
+                    <span className="text-accent mt-1">•</span>
                     {outcome}
                   </li>
                 ))}
@@ -166,7 +166,7 @@ export function CaseStudyLayout({
                     key={i}
                     className="text-foreground flex items-start gap-3"
                   >
-                    <span className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded flex-shrink-0">
+                    <span className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-sm flex-shrink-0 font-medium">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {insight}
@@ -236,13 +236,13 @@ export function CaseStudyLayout({
           {/* Sticky Sidebar - Desktop Only */}
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <p className="text-xs text-muted-foreground mb-4">On this page</p>
+              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">On this page</p>
               <nav className="space-y-2">
                 {sections.map((section) => (
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-sm text-muted-foreground hover:text-accent transition-colors duration-200 py-1"
                   >
                     {section.label}
                   </a>
@@ -253,20 +253,20 @@ export function CaseStudyLayout({
         </div>
 
         {/* Next/Prev Navigation */}
-        <nav className="mt-16 pt-8 border-t border-border">
+        <nav className="mt-16 pt-8 border-t border-border/50">
           <div className="flex flex-col sm:flex-row justify-between gap-4">
             {prevProject ? (
               <Link
                 href={`/projects/${prevProject.slug}`}
-                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
                 <ArrowLeft
                   size={16}
-                  className="group-hover:-translate-x-1 transition-transform"
+                  className="group-hover:-translate-x-1 transition-transform duration-200"
                 />
                 <div>
-                  <p className="text-xs text-muted-foreground">Previous</p>
-                  <p className="text-sm">{prevProject.title}</p>
+                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Previous</p>
+                  <p className="text-sm group-hover:text-accent transition-colors duration-200">{prevProject.title}</p>
                 </div>
               </Link>
             ) : (
@@ -275,15 +275,15 @@ export function CaseStudyLayout({
             {nextProject && (
               <Link
                 href={`/projects/${nextProject.slug}`}
-                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors sm:text-right"
+                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200 sm:text-right"
               >
                 <div>
-                  <p className="text-xs text-muted-foreground">Next</p>
-                  <p className="text-sm">{nextProject.title}</p>
+                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Next</p>
+                  <p className="text-sm group-hover:text-accent transition-colors duration-200">{nextProject.title}</p>
                 </div>
                 <ArrowRight
                   size={16}
-                  className="group-hover:translate-x-1 transition-transform"
+                  className="group-hover:translate-x-1 transition-transform duration-200"
                 />
               </Link>
             )}

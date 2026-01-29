@@ -60,14 +60,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 mt-10">
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded hover:bg-foreground/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-sm hover:bg-accent hover:shadow-md transition-all duration-200 group"
             >
               View case studies
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-foreground text-sm font-medium rounded hover:bg-secondary transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-foreground text-sm font-medium rounded-sm hover:bg-muted hover:border-foreground transition-all duration-200"
             >
               Get in touch
             </Link>
@@ -76,16 +76,16 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-16 md:py-24 border-t border-border">
+      <section className="py-16 md:py-24 border-t border-border/50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="text-sm text-muted-foreground">Selected work</h2>
+            <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide">Selected work</h2>
             <Link
               href="/projects"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+              className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center gap-1 group"
             >
               View all
-              <ArrowRight size={14} />
+              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
           </div>
 
@@ -98,15 +98,15 @@ export default function HomePage() {
       </section>
 
       {/* How I Work */}
-      <section className="py-16 md:py-24 border-t border-border bg-secondary/30">
+      <section className="py-16 md:py-24 border-t border-border/50 bg-card">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-sm text-muted-foreground mb-12">How I work</h2>
+          <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-12">How I work</h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step) => (
-              <div key={step.step} className="group">
-                <span className="text-xs text-muted-foreground">{step.step}</span>
-                <h3 className="text-lg font-medium text-foreground mt-1">
+              <div key={step.step} className="group p-6 rounded-sm border border-transparent hover:border-border/50 hover:bg-background transition-all duration-200">
+                <span className="text-xs text-accent font-medium">{step.step}</span>
+                <h3 className="text-lg font-medium text-foreground mt-2">
                   {step.title}
                 </h3>
                 <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
@@ -119,13 +119,13 @@ export default function HomePage() {
       </section>
 
       {/* Credibility Strip */}
-      <section className="py-16 md:py-20 border-t border-border">
+      <section className="py-16 md:py-20 border-t border-border/50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-wrap gap-x-12 gap-y-4">
             {credibilityItems.map((item) => (
               <span
                 key={item}
-                className="text-sm text-muted-foreground"
+                className="text-sm text-muted-foreground font-medium"
               >
                 {item}
               </span>
@@ -135,19 +135,20 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 border-t border-border">
+      <section className="py-16 md:py-24 border-t border-border/50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-xl">
-            <p className="text-sm text-muted-foreground mb-4">Contact</p>
-            <h2 className="text-2xl md:text-3xl font-normal text-foreground text-balance">
+            <p className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-4">Contact</p>
+            <h2 className="text-2xl md:text-3xl font-normal text-foreground text-balance leading-snug">
               If you would like to discuss a project or just say hi, I&apos;m always
               open to chat.
             </h2>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded hover:bg-foreground/90 transition-colors mt-8"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-sm hover:bg-accent hover:shadow-md transition-all duration-200 mt-8 group"
             >
               Get in touch
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
           </div>
         </div>

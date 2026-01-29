@@ -18,10 +18,10 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/50">
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex flex-col">
-          <span className="text-lg font-medium tracking-tight text-foreground">
+        <Link href="/" className="flex flex-col group">
+          <span className="text-lg font-medium tracking-tight text-foreground group-hover:text-accent transition-colors duration-200">
             Erick van Reenen
           </span>
           <span className="text-sm text-muted-foreground">
@@ -36,10 +36,10 @@ export function Navbar() {
               <Link
                 href={item.href}
                 className={cn(
-                  "text-sm transition-colors hover:text-foreground",
+                  "text-sm transition-colors duration-200 relative py-1",
                   pathname === item.href
-                    ? "text-foreground"
-                    : "text-muted-foreground"
+                    ? "text-foreground after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {item.label}
@@ -50,7 +50,7 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 text-foreground hover:text-accent transition-colors duration-200"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -60,7 +60,7 @@ export function Navbar() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border">
+        <div className="md:hidden bg-background border-b border-border/50 animate-in slide-in-from-top-2 duration-200">
           <ul className="px-6 py-4 space-y-4">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -68,10 +68,10 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "block text-base transition-colors",
+                    "block text-base transition-colors duration-200 py-2",
                     pathname === item.href
-                      ? "text-foreground"
-                      : "text-muted-foreground"
+                      ? "text-foreground font-medium"
+                      : "text-muted-foreground active:text-foreground"
                   )}
                 >
                   {item.label}
