@@ -34,6 +34,7 @@ export interface Project {
     caption: string;
     wide?: boolean;
   }[];
+  externalLink?: string;
 }
 
 export const projects: Project[] = [
@@ -221,6 +222,53 @@ export const projects: Project[] = [
       { src: "/images/uni4-kanban.jpg", caption: "Kanban workflow implementation for design team" },
       { src: "/images/uni4-aggregator.jpg", caption: "Aggregator platform design exploration", wide: true }
     ]
+  },
+  {
+    slug: "edtech-interactive-learning",
+    title: "EdTech Interactive Learning Experience",
+    subtitle: "Designing an intuitive, interactive online learning experience using Articulate Rise",
+    tags: ["EdTech", "UX Strategy"],
+    role: "Learning Experience Designer",
+    team: "Solo Project",
+    timeline: "2024",
+    tools: ["Articulate Rise", "Figma", "Miro"],
+    thumbnail: "/images/edtech-thumbnail.jpg",
+    outcomes: [
+      "Created engaging interactive learning modules",
+      "Improved learner engagement through multimedia content",
+      "Delivered accessible, responsive learning experience",
+      "Streamlined knowledge retention through interactive assessments"
+    ],
+    summary: "Designed and developed an interactive online learning experience using Articulate Rise, focusing on creating an intuitive, engaging, and accessible educational journey for learners.",
+    context: "This project showcases my EdTech capabilities, demonstrating how UX principles can be applied to educational content design. The goal was to create an interactive learning experience that engages users while effectively communicating complex information.",
+    goals: [
+      "Create an engaging and intuitive learning flow",
+      "Apply instructional design principles to content structure",
+      "Ensure accessibility across devices and user needs",
+      "Balance visual engagement with educational effectiveness"
+    ],
+    research: "Applied learning science principles and UX research methodologies to understand how users best absorb and retain information in digital learning environments.",
+    insights: [
+      "Chunked content improves comprehension and reduces cognitive load",
+      "Interactive elements increase engagement and retention",
+      "Clear navigation and progress indicators reduce learner anxiety",
+      "Multimedia variety caters to different learning styles"
+    ],
+    iaFlows: "Structured the learning experience with clear progression, logical content grouping, and intuitive navigation that guides learners through the material at their own pace.",
+    designExploration: "Explored various content presentation methods and interactive elements to find the optimal balance between engagement and educational effectiveness.",
+    finalUI: "Delivered a polished, responsive learning experience with clean typography, thoughtful use of imagery, and interactive assessments that reinforce key concepts.",
+    testing: "Conducted user testing with sample learners to validate the learning flow, content clarity, and interaction patterns.",
+    outcome: "Successfully created an interactive learning experience that demonstrates the intersection of UX design and educational content development.",
+    learnings: [
+      "Instructional design and UX design share many common principles",
+      "Interactivity should serve the learning objective, not distract from it",
+      "Accessibility is crucial in educational content"
+    ],
+    images: [
+      { src: "/images/edtech-structure.jpg", caption: "Learning experience structure and flow" },
+      { src: "/images/edtech-interactions.jpg", caption: "Interactive elements and assessments", wide: true }
+    ],
+    externalLink: "https://rise.articulate.com/share/XCDWEAquTje11b1vjAzKZahmZziR0gaj#/lessons/rMXP5z-dQk-xwn-pu5qgWJAxQpOXijVW"
   },
   {
     slug: "pet-heaven",
