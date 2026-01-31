@@ -15,10 +15,10 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
       <button
         onClick={() => onTagChange(null)}
         className={cn(
-          "text-sm px-4 py-2 rounded-full border transition-colors",
+          "text-sm px-4 py-2 rounded-sm border-none transition-all duration-200",
           activeTag === null
-            ? "bg-foreground text-background border-foreground"
-            : "bg-transparent text-foreground border-border hover:border-foreground"
+            ? "bg-[#C65D3B] text-white"
+            : "bg-[#6B7355] text-white hover:bg-[#C65D3B]"
         )}
       >
         All
@@ -28,10 +28,10 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
           key={tag}
           onClick={() => onTagChange(tag)}
           className={cn(
-            "text-sm px-4 py-2 rounded-full border transition-colors",
+            "text-sm px-4 py-2 rounded-sm border-none transition-all duration-200",
             activeTag === tag
-              ? "bg-foreground text-background border-foreground"
-              : "bg-transparent text-foreground border-border hover:border-foreground"
+              ? "bg-[#C65D3B] text-white"
+              : "bg-[#6B7355] text-white hover:bg-[#C65D3B]"
           )}
         >
           {tag}

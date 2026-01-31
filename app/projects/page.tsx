@@ -17,8 +17,8 @@ export default function ProjectsPage() {
     <div className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-3xl md:text-4xl font-normal text-foreground mb-4">
+        <header className="mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-foreground mb-4 text-balance">
             Projects
           </h1>
           <p className="text-muted-foreground max-w-2xl leading-relaxed">
@@ -26,7 +26,7 @@ export default function ProjectsPage() {
             digital products. Each project represents a journey of research,
             iteration, and thoughtful problem-solving.
           </p>
-        </div>
+        </header>
 
         {/* Filters */}
         <div className="mb-12">

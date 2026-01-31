@@ -128,7 +128,7 @@ export default function AboutPage() {
         <div className="lg:grid lg:grid-cols-[2fr_1fr] lg:gap-16 mb-16 md:mb-24">
           {/* Main Bio */}
           <div className="mb-12 lg:mb-0">
-            <div className="aspect-square max-w-md bg-muted rounded-lg flex items-center justify-center text-muted-foreground/40 mb-8">
+            <div className="aspect-square max-w-md bg-card border border-border/50 rounded-sm flex items-center justify-center text-muted-foreground/40 mb-8">
               Erick van Reenen
             </div>
 
@@ -159,33 +159,33 @@ export default function AboutPage() {
           {/* Sidebar Info */}
           <aside>
             <div className="mb-10">
-              <h2 className="text-xs text-muted-foreground mb-4">Location</h2>
+              <h2 className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">Location</h2>
               <p className="text-sm text-foreground">Cape Town, South Africa</p>
             </div>
 
             <div className="mb-10">
-              <h2 className="text-xs text-muted-foreground mb-4">Contact</h2>
+              <h2 className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">Contact</h2>
               <p className="text-sm text-foreground">erickvanreenen@gmail.com</p>
               <p className="text-sm text-foreground">+27 620 969 497</p>
             </div>
 
             <div className="mb-10">
-              <h2 className="text-xs text-muted-foreground mb-4">Availability</h2>
+              <h2 className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">Availability</h2>
               <p className="text-sm text-foreground">Open to opportunities</p>
             </div>
           </aside>
         </div>
 
         {/* Skills & Tools */}
-        <section className="py-12 md:py-16 border-t border-border">
+        <section className="py-12 md:py-16 border-t border-border/50">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16">
             <div className="mb-10 lg:mb-0">
-              <h2 className="text-sm text-muted-foreground mb-6">Skills</h2>
+              <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-6">Skills</h2>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-sm px-3 py-1.5 border border-border rounded text-foreground"
+                    className="text-sm px-3 py-1.5 rounded-sm text-white bg-[#6B7355] hover:bg-[#C65D3B] transition-colors duration-200"
                   >
                     {skill}
                   </span>
@@ -194,12 +194,12 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h2 className="text-sm text-muted-foreground mb-6">Tools</h2>
+              <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-6">Tools</h2>
               <div className="flex flex-wrap gap-2">
                 {tools.map((tool) => (
                   <span
                     key={tool}
-                    className="text-sm px-3 py-1.5 border border-border rounded text-foreground"
+                    className="text-sm px-3 py-1.5 rounded-sm text-white bg-[#6B7355] hover:bg-[#C65D3B] transition-colors duration-200"
                   >
                     {tool}
                   </span>
@@ -210,11 +210,11 @@ export default function AboutPage() {
         </section>
 
         {/* Ways of Working */}
-        <section className="py-12 md:py-16 border-t border-border">
-          <h2 className="text-sm text-muted-foreground mb-10">Ways of Working</h2>
+        <section className="py-12 md:py-16 border-t border-border/50">
+          <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-10">Ways of Working</h2>
           <div className="grid sm:grid-cols-2 gap-8">
             {waysOfWorking.map((way) => (
-              <div key={way.title}>
+              <div key={way.title} className="p-6 bg-card border border-border/50 rounded-sm hover:border-accent/30 transition-colors duration-200">
                 <h3 className="text-lg font-medium text-foreground mb-2">
                   {way.title}
                 </h3>
@@ -227,8 +227,8 @@ export default function AboutPage() {
         </section>
 
         {/* Experience */}
-        <section className="py-12 md:py-16 border-t border-border">
-          <h2 className="text-sm text-muted-foreground mb-10">Experience</h2>
+        <section className="py-12 md:py-16 border-t border-border/50">
+          <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-10">Experience</h2>
           <div className="space-y-10">
             {experience.map((exp) => (
               <div
@@ -236,13 +236,13 @@ export default function AboutPage() {
                 className="grid md:grid-cols-[200px_1fr] gap-4"
               >
                 <div>
-                  <p className="text-xs text-muted-foreground">{exp.period}</p>
+                  <p className="text-xs text-muted-foreground font-medium">{exp.period}</p>
                 </div>
                 <div>
                   <h3 className="text-base font-medium text-foreground">
                     {exp.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-2">
+                  <p className="text-sm text-accent mb-2">
                     {exp.company}
                   </p>
                   <p className="text-sm text-foreground leading-relaxed">
@@ -255,8 +255,8 @@ export default function AboutPage() {
         </section>
 
         {/* Education */}
-        <section className="py-12 md:py-16 border-t border-border">
-          <h2 className="text-sm text-muted-foreground mb-10">Education</h2>
+        <section className="py-12 md:py-16 border-t border-border/50">
+          <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-10">Education</h2>
           <div className="space-y-6">
             {education.map((edu) => (
               <div
@@ -264,7 +264,7 @@ export default function AboutPage() {
                 className="grid md:grid-cols-[200px_1fr] gap-4"
               >
                 <div>
-                  <p className="text-xs text-muted-foreground">{edu.year}</p>
+                  <p className="text-xs text-muted-foreground font-medium">{edu.year}</p>
                 </div>
                 <div>
                   <h3 className="text-base font-medium text-foreground">
@@ -280,21 +280,21 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-12 md:py-16 border-t border-border">
+        <section className="py-12 md:py-16 border-t border-border/50">
           <div className="max-w-xl">
-            <h2 className="text-2xl md:text-3xl font-normal text-foreground mb-4 text-balance">
+            <h2 className="text-2xl md:text-3xl font-normal text-foreground mb-4 text-balance leading-snug">
               Let&apos;s work together
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-6 leading-relaxed">
               I&apos;m always open to discussing new projects, creative ideas, or
               opportunities to be part of your vision.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded hover:bg-foreground/90 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-sm hover:bg-accent hover:shadow-md transition-all duration-200 group"
             >
               Get in touch
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
           </div>
         </section>

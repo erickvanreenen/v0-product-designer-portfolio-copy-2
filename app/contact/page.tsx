@@ -54,7 +54,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="mb-16 lg:mb-0">
             {isSubmitted ? (
-              <div className="bg-secondary/50 rounded-lg p-8 text-center">
+              <div className="bg-card border border-border/50 rounded-sm p-8 text-center">
                 <h2 className="text-xl font-medium text-foreground mb-2">
                   Thank you for reaching out!
                 </h2>
@@ -63,7 +63,7 @@ export default function ContactPage() {
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="text-sm text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors"
+                  className="text-sm text-accent underline underline-offset-4 hover:text-foreground transition-colors duration-200"
                 >
                   Send another message
                 </button>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm text-foreground mb-2"
+                    className="block text-sm text-foreground font-medium mb-2"
                   >
                     Name
                   </label>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
+                    className="w-full px-4 py-3 bg-card border border-border/50 rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
                     placeholder="Your name"
                   />
                 </div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm text-foreground mb-2"
+                    className="block text-sm text-foreground font-medium mb-2"
                   >
                     Email
                   </label>
@@ -103,7 +103,7 @@ export default function ContactPage() {
                     value={formState.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
+                    className="w-full px-4 py-3 bg-card border border-border/50 rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm text-foreground mb-2"
+                    className="block text-sm text-foreground font-medium mb-2"
                   >
                     Message
                   </label>
@@ -122,7 +122,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-background border border-border rounded text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow resize-none"
+                    className="w-full px-4 py-3 bg-card border border-border/50 rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200 resize-none"
                     placeholder="Tell me about your project or just say hello..."
                   />
                 </div>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-3 bg-foreground text-background text-sm font-medium rounded hover:bg-foreground/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-foreground text-background text-sm font-medium rounded-sm hover:bg-accent hover:shadow-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Sending..." : "Send message"}
                 </button>
@@ -142,29 +142,29 @@ export default function ContactPage() {
           <aside>
             <div className="space-y-8">
               <div>
-                <h2 className="text-sm text-muted-foreground mb-4">
+                <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-4">
                   Direct contact
                 </h2>
                 <div className="space-y-4">
                   <Link
                     href="mailto:erickvanreenen@gmail.com"
-                    className="flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors group"
+                    className="flex items-center gap-3 text-foreground hover:text-accent transition-colors duration-200 group"
                   >
-                    <Mail size={18} className="text-muted-foreground" />
+                    <Mail size={18} className="text-muted-foreground group-hover:text-accent transition-colors duration-200" />
                     <span className="text-sm">erickvanreenen@gmail.com</span>
                   </Link>
                   <Link
                     href="tel:+27620969497"
-                    className="flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors"
+                    className="flex items-center gap-3 text-foreground hover:text-accent transition-colors duration-200 group"
                   >
-                    <Phone size={18} className="text-muted-foreground" />
+                    <Phone size={18} className="text-muted-foreground group-hover:text-accent transition-colors duration-200" />
                     <span className="text-sm">+27 620 969 497</span>
                   </Link>
                 </div>
               </div>
 
               <div>
-                <h2 className="text-sm text-muted-foreground mb-4">Location</h2>
+                <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-4">Location</h2>
                 <div className="flex items-start gap-3 text-foreground">
                   <MapPin size={18} className="text-muted-foreground mt-0.5" />
                   <span className="text-sm">Cape Town, South Africa</span>
@@ -172,20 +172,20 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <h2 className="text-sm text-muted-foreground mb-4">Social</h2>
+                <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-4">Social</h2>
                 <Link
                   href="https://linkedin.com/in/erickvanreenen"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors"
+                  className="flex items-center gap-3 text-foreground hover:text-accent transition-colors duration-200 group"
                 >
-                  <Linkedin size={18} className="text-muted-foreground" />
+                  <Linkedin size={18} className="text-muted-foreground group-hover:text-accent transition-colors duration-200" />
                   <span className="text-sm">LinkedIn</span>
                 </Link>
               </div>
 
-              <div className="pt-8 border-t border-border">
-                <h2 className="text-sm text-muted-foreground mb-4">
+              <div className="pt-8 border-t border-border/50">
+                <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-4">
                   Availability
                 </h2>
                 <p className="text-sm text-foreground leading-relaxed">
