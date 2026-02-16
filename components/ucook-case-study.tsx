@@ -3,7 +3,7 @@
 import React from "react";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowRight, TrendingUp, AlertTriangle, Users, Target, Search, Lightbulb, Layers, BarChart3, BookOpen } from "lucide-react";
 
 interface UCookCaseStudyProps {
   project: Project;
@@ -11,618 +11,456 @@ interface UCookCaseStudyProps {
   prevProject?: Project;
 }
 
-interface SectionProps {
-  id: string;
-  title: string;
-  children: React.ReactNode;
-}
-
-function Section({ id, title, children }: SectionProps) {
-  return (
-    <section id={id} className="py-12 md:py-16 border-t border-border/50">
-      <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-6">
-        {title}
-      </h2>
-      <div className="max-w-none">{children}</div>
-    </section>
-  );
-}
-
-const processSteps = [
-  {
-    step: "01",
-    title: "Customer service interviews",
-    description:
-      "Reviewed customer service logs, tracked topics and complaint categories. Identified repeated contact drivers and flagged incomplete sign-ups where users believed they had successfully ordered.",
-  },
-  {
-    step: "02",
-    title: "Internal survey",
-    description:
-      "16 internal responses focused on sign-up and subscription pausing. 55% of feedback highlighted unclear communication. Sign-up scored 6/10 compared to 8/10 for pause subscription.",
-  },
-  {
-    step: "03",
-    title: "Competitive benchmarking",
-    description:
-      "Reviewed sign-up funnels from Marley Spoon, Taste Box and Hello Fresh. Identified consistent patterns including clearly structured steps and a definitive payment action.",
-  },
-  {
-    step: "04",
-    title: "Heuristic evaluation",
-    description:
-      "Evaluated against Nielsen's 10 usability heuristics. Issues clustered into three themes: communication, navigation and UI optimisation.",
-  },
-  {
-    step: "05",
-    title: "Unmoderated testing (Maze)",
-    description:
-      "Attempted to set up Maze testing. Identified a critical blocker: no single, clearly defined happy path funnel existed to test.",
-  },
-  {
-    step: "06",
-    title: "Moderated usability testing",
-    description:
-      "Conducted three moderated usability tests. Surfaced recurring issues around navigation, plan selection, pricing clarity and subscription vs on-demand confusion.",
-  },
-  {
-    step: "07",
-    title: "Measurement planning",
-    description:
-      "Defined Tag Manager triggers across each funnel step. Tooling included Google Analytics, Tag Manager, PostHog heatmaps and session recordings.",
-  },
-];
-
-const technicalSpecs = [
-  {
-    title: "scrollIntoView()",
-    description:
-      "Guides users to relevant content during step transitions and validation errors",
-  },
-  {
-    title: "Sticky header",
-    description:
-      "Maintains orientation and access to navigation during sign-up",
-  },
-  {
-    title: "Form validation",
-    description: "Prevents incomplete or invalid submissions with clear error states",
-  },
-  {
-    title: "Progress tracking",
-    description:
-      "Triggers aligned to funnel steps for analytics and measurement",
-  },
-];
-
 export function UCookCaseStudy({
   project,
   nextProject,
   prevProject,
 }: UCookCaseStudyProps) {
-  const sections = [
-    { id: "problem", label: "Problem" },
-    { id: "users", label: "Users" },
-    { id: "constraints", label: "Constraints" },
-    { id: "process", label: "Process" },
-    { id: "insights", label: "Insights" },
-    { id: "solution", label: "Solution" },
-    { id: "delivery", label: "Delivery" },
-    { id: "results", label: "Results" },
-    { id: "learnings", label: "Learnings" },
-  ];
-
   return (
-    <div className="py-12 md:py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Back Link */}
-        <Link
-          href="/projects"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors duration-200 mb-8 group"
-        >
-          <ArrowLeft
-            size={16}
-            className="group-hover:-translate-x-0.5 transition-transform duration-200"
-          />
-          Back to projects
-        </Link>
+    <div className="min-h-screen">
+      {/* ── Hero ── */}
+      <section className="bg-[#09332C] text-[#F7EDDA]">
+        <div className="max-w-6xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-28">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-sm text-[#F7EDDA]/60 hover:text-[#FFA74F] transition-colors duration-200 mb-12 group"
+          >
+            <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
+            Back to projects
+          </Link>
 
-        {/* Hero Section */}
-        <header className="pb-12 md:pb-16">
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2.5 py-1 bg-[#09332C] text-white rounded-sm transition-colors duration-200 hover:bg-[#F0531C]"
-              >
+              <span key={tag} className="text-xs px-3 py-1.5 rounded-full border border-[#F7EDDA]/20 text-[#F7EDDA]/70">
                 {tag}
               </span>
             ))}
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-foreground mb-4 text-balance">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-[#F7EDDA] mb-4 tracking-tight text-balance">
             {project.title}
           </h1>
-          <p className="text-lg md:text-xl text-foreground/80 max-w-3xl leading-relaxed">
+          <p className="text-xl md:text-2xl text-[#FFA74F] font-normal max-w-3xl leading-relaxed mb-6">
             Sign-up usability investigation and funnel redesign
           </p>
-          <p className="text-base text-muted-foreground max-w-3xl leading-relaxed mt-4">
+          <p className="text-base text-[#F7EDDA]/70 max-w-2xl leading-relaxed">
             {project.summary}
           </p>
-        </header>
 
-        {/* Main Content with Sticky Sidebar */}
-        <div className="lg:grid lg:grid-cols-[1fr_280px] lg:gap-16">
-          {/* Main Content */}
-          <div>
-            {/* Quick Stats */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-border/50 mb-8">
-              <div>
-                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-1">
-                  Role
-                </p>
-                <p className="text-sm text-foreground">{project.role}</p>
+          {/* Meta strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-[#F7EDDA]/10">
+            {[
+              { label: "Role", value: project.role },
+              { label: "Company", value: "Silvertree (UCOOK)" },
+              { label: "Year", value: project.timeline },
+              { label: "Methods", value: "Mixed methods" },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-xs text-[#FFA74F] font-medium uppercase tracking-wider mb-1">{item.label}</p>
+                <p className="text-sm text-[#F7EDDA]/80">{item.value}</p>
               </div>
-              <div>
-                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-1">
-                  Company
-                </p>
-                <p className="text-sm text-foreground">
-                  Silvertree (UCOOK)
-                </p>
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-1">
-                  Year
-                </p>
-                <p className="text-sm text-foreground">{project.timeline}</p>
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-1">
-                  Tools
-                </p>
-                <p className="text-sm text-foreground">
-                  {project.tools.join(", ")}
-                </p>
-              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Impact Banner ── */}
+      <section className="bg-[#F0531C] text-white">
+        <div className="max-w-6xl mx-auto px-6 py-10 md:py-14">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center">
+            <div className="text-center md:text-left">
+              <p className="text-4xl md:text-5xl font-serif font-medium">3.7%</p>
+              <p className="text-sm text-white/70 mt-1">old completion rate</p>
             </div>
-
-            {/* Key Outcomes - Highlight Card */}
-            <div className="py-8 bg-[#09332C] rounded-sm px-6 mb-8">
-              <p className="text-xs text-[#FFA74F] font-medium uppercase tracking-wide mb-4">
-                Key Outcomes
-              </p>
-              <ul className="space-y-2">
-                {project.outcomes.map((outcome, i) => (
-                  <li
-                    key={i}
-                    className="text-sm text-[#F7EDDA] flex items-start gap-2"
-                  >
-                    <span className="text-[#F0531C] mt-1">*</span>
-                    {outcome}
-                  </li>
-                ))}
-              </ul>
+            <div className="text-center flex flex-col items-center">
+              <TrendingUp size={32} className="mb-2 text-white/80" />
+              <p className="text-4xl md:text-5xl font-serif font-medium">9.3%</p>
+              <p className="text-sm text-white/70 mt-1">new completion rate</p>
             </div>
+            <div className="text-center md:text-right">
+              <p className="text-4xl md:text-5xl font-serif font-medium">~R1.3M</p>
+              <p className="text-sm text-white/70 mt-1">annual revenue impact addressed</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Problem */}
-            <Section id="problem" title="The Problem">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-sm font-medium text-foreground mb-3">
-                    User pain points
-                  </h3>
-                  <ul className="space-y-3">
-                    <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-2">
-                      <span className="text-accent mt-0.5 flex-shrink-0">--</span>
-                      Sign-up felt unclear and confusing, particularly what
-                      &quot;signing up&quot; meant in relation to subscription activation
-                      and payment
-                    </li>
-                    <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-2">
-                      <span className="text-accent mt-0.5 flex-shrink-0">--</span>
-                      Users struggled with navigation and orientation, including
-                      finding meal options and returning to previous steps
-                    </li>
-                    <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-2">
-                      <span className="text-accent mt-0.5 flex-shrink-0">--</span>
-                      Checkout created confusion around subscription vs on-demand
-                      ordering, pricing clarity and when payment would occur
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-foreground mb-3">
-                    Business pain points
-                  </h3>
-                  <ul className="space-y-3">
-                    <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-2">
-                      <span className="text-accent mt-0.5 flex-shrink-0">--</span>
-                      Over 60 incomplete sign-ups in a single week, with users still expecting delivery
-                    </li>
-                    <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-2">
-                      <span className="text-accent mt-0.5 flex-shrink-0">--</span>
-                      Estimated revenue impact of ~R1,296,000 per year based on average basket value
-                    </li>
-                    <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-2">
-                      <span className="text-accent mt-0.5 flex-shrink-0">--</span>
-                      Retention through the sign-up path was extremely low at 1.43%
-                    </li>
-                    <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-2">
-                      <span className="text-accent mt-0.5 flex-shrink-0">--</span>
-                      56% of first billings occurred 1-5 days after sign-up, reinforcing misalignment
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </Section>
+      {/* ── Main Content ── */}
+      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
 
-            {/* Users & Scope */}
-            <Section id="users" title="Users & Scope">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-card border border-border/50 rounded-sm p-6">
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-3">
-                    Primary users
-                  </p>
-                  <p className="text-sm text-foreground leading-relaxed">
-                    Prospective UCOOK customers attempting to sign up and place
-                    their first order within a subscription-led model.
-                  </p>
-                </div>
-                <div className="bg-card border border-border/50 rounded-sm p-6">
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-3">
-                    Out of scope
-                  </p>
-                  <p className="text-sm text-foreground leading-relaxed">
-                    Existing customers managing their accounts post sign-up,
-                    except where pause and reactivation behaviour surfaced as
-                    supporting context through customer service.
-                  </p>
-                </div>
-              </div>
-            </Section>
+        {/* ── Narrative Opening ── */}
+        <section className="mb-20">
+          <p className="text-lg md:text-xl text-foreground leading-relaxed font-serif">
+            Customer service data told a clear story: users were completing what they believed was sign-up, then contacting support asking where their deliveries were. Over 60 incomplete sign-ups in a single week. Retention through the path sat at 1.43%.
+          </p>
+          <p className="text-base text-foreground/70 leading-relaxed mt-6">
+            This wasn&apos;t on anyone&apos;s roadmap. I initiated the investigation myself, believing that sign-up friction was not just a UX issue but a strategic revenue problem hiding in plain sight.
+          </p>
+        </section>
 
-            {/* Constraints */}
-            <Section id="constraints" title="Constraints">
-              <ul className="space-y-3">
-                <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-3">
-                  <span className="text-xs bg-[#FFA74F] text-[#09332C] px-2 py-1 rounded-sm flex-shrink-0 font-medium">
-                    01
-                  </span>
-                  No clearly defined baseline funnel existed, preventing
-                  effective unmoderated testing
-                </li>
-                <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-3">
-                  <span className="text-xs bg-[#FFA74F] text-[#09332C] px-2 py-1 rounded-sm flex-shrink-0 font-medium">
-                    02
-                  </span>
-                  Subscription and billing logic was complex and poorly aligned
-                  with user mental models
-                </li>
-                <li className="text-sm text-foreground/80 leading-relaxed flex items-start gap-3">
-                  <span className="text-xs bg-[#FFA74F] text-[#09332C] px-2 py-1 rounded-sm flex-shrink-0 font-medium">
-                    03
-                  </span>
-                  Introducing payment earlier carried operational risk due to
-                  frequent order changes and refund overhead
-                </li>
-              </ul>
-            </Section>
-
-            {/* Process */}
-            <Section id="process" title="Process">
-              <div className="space-y-6">
-                {processSteps.map((step) => (
-                  <div
-                    key={step.step}
-                    className="flex gap-4 items-start group"
-                  >
-                    <span className="text-xs bg-[#09332C] text-[#FFA74F] px-2.5 py-1.5 rounded-sm font-medium flex-shrink-0 mt-0.5">
-                      {step.step}
-                    </span>
-                    <div>
-                      <h3 className="text-sm font-medium text-foreground mb-1">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-foreground/70 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Section>
-
-            {/* Key Insights */}
-            <Section id="insights" title="Key Insights">
-              <ul className="space-y-3">
-                {project.insights.map((insight, i) => (
-                  <li
-                    key={i}
-                    className="text-sm text-foreground/80 flex items-start gap-3 leading-relaxed"
-                  >
-                    <span className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-sm flex-shrink-0 font-medium">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {insight}
-                  </li>
-                ))}
-              </ul>
-            </Section>
-
-            {/* Solution */}
-            <Section id="solution" title="Solution">
-              <p className="text-sm text-foreground/80 leading-relaxed mb-6">
-                Established sign-up as the highest-impact usability issue to
-                prioritise based on evidence across multiple research streams.
-              </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-[#F7EDDA] rounded-sm p-6">
-                  <p className="text-xs text-[#09332C] font-medium uppercase tracking-wide mb-3">
-                    Quick wins
-                  </p>
-                  <p className="text-sm text-[#09332C]/80 leading-relaxed">
-                    Addressing communication gaps, navigation clarity and UI
-                    improvements that could be shipped independently.
-                  </p>
-                </div>
-                <div className="bg-[#F7EDDA] rounded-sm p-6">
-                  <p className="text-xs text-[#09332C] font-medium uppercase tracking-wide mb-3">
-                    Structural redesign
-                  </p>
-                  <p className="text-sm text-[#09332C]/80 leading-relaxed">
-                    Redesigning the sign-up funnel into a measurable happy path
-                    with a key decision to validate: whether payment should be
-                    included within sign-up.
-                  </p>
-                </div>
-              </div>
-            </Section>
-
-            {/* Development & Delivery */}
-            <Section id="delivery" title="Development & Delivery">
-              <p className="text-sm text-foreground/80 leading-relaxed mb-6">
-                Led design-to-development handoff with annotated Figma
-                prototypes, interaction documentation and component-level
-                specifications. Worked closely with developers during agile
-                sprints and collaborated on QA.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {technicalSpecs.map((spec) => (
-                  <div
-                    key={spec.title}
-                    className="bg-card border border-border/50 rounded-sm p-5"
-                  >
-                    <p className="text-sm font-medium text-foreground font-mono mb-1">
-                      {spec.title}
-                    </p>
-                    <p className="text-sm text-foreground/70 leading-relaxed">
-                      {spec.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </Section>
-
-            {/* Results - Funnel Comparison */}
-            <Section id="results" title="Results">
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                {/* Old Funnel */}
-                <div className="bg-card border border-border/50 rounded-sm p-6">
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">
-                    Old sign-up funnel
-                  </p>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex items-baseline justify-between mb-1">
-                        <p className="text-xs text-foreground/60">Step 1</p>
-                        <p className="text-xs text-foreground/60">405 users</p>
-                      </div>
-                      <div className="h-2 bg-muted rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-foreground/30 rounded-sm"
-                          style={{ width: "100%" }}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-baseline justify-between mb-1">
-                        <p className="text-xs text-foreground/60">Step 2</p>
-                        <p className="text-xs text-foreground/60">36 users</p>
-                      </div>
-                      <div className="h-2 bg-muted rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-foreground/30 rounded-sm"
-                          style={{ width: "8.9%" }}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-baseline justify-between mb-1">
-                        <p className="text-xs text-foreground/60">Completed</p>
-                        <p className="text-xs text-foreground/60">15 users</p>
-                      </div>
-                      <div className="h-2 bg-muted rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-foreground/30 rounded-sm"
-                          style={{ width: "3.7%" }}
-                        />
-                      </div>
-                    </div>
-                    <p className="text-2xl font-medium text-foreground/40 mt-2">
-                      3.7%
-                      <span className="text-sm font-normal text-foreground/40 ml-2">
-                        completion
-                      </span>
-                    </p>
-                  </div>
-                </div>
-
-                {/* New Funnel */}
-                <div className="bg-[#09332C] rounded-sm p-6">
-                  <p className="text-xs text-[#FFA74F] font-medium uppercase tracking-wide mb-4">
-                    New sign-up funnel
-                  </p>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex items-baseline justify-between mb-1">
-                        <p className="text-xs text-[#F7EDDA]/60">Step 1</p>
-                        <p className="text-xs text-[#F7EDDA]/60">
-                          1,994 users
-                        </p>
-                      </div>
-                      <div className="h-2 bg-[#2E4B3C] rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-[#F0531C] rounded-sm"
-                          style={{ width: "100%" }}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-baseline justify-between mb-1">
-                        <p className="text-xs text-[#F7EDDA]/60">Step 2</p>
-                        <p className="text-xs text-[#F7EDDA]/60">499 users</p>
-                      </div>
-                      <div className="h-2 bg-[#2E4B3C] rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-[#F0531C] rounded-sm"
-                          style={{ width: "25%" }}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-baseline justify-between mb-1">
-                        <p className="text-xs text-[#F7EDDA]/60">Step 3</p>
-                        <p className="text-xs text-[#F7EDDA]/60">236 users</p>
-                      </div>
-                      <div className="h-2 bg-[#2E4B3C] rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-[#FFA74F] rounded-sm"
-                          style={{ width: "11.8%" }}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-baseline justify-between mb-1">
-                        <p className="text-xs text-[#F7EDDA]/60">Completed</p>
-                        <p className="text-xs text-[#F7EDDA]/60">185 users</p>
-                      </div>
-                      <div className="h-2 bg-[#2E4B3C] rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-[#FFA74F] rounded-sm"
-                          style={{ width: "9.3%" }}
-                        />
-                      </div>
-                    </div>
-                    <p className="text-2xl font-medium text-[#F7EDDA] mt-2">
-                      9.3%
-                      <span className="text-sm font-normal text-[#F7EDDA]/60 ml-2">
-                        completion
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Net uplift */}
-              <div className="bg-[#F7EDDA] rounded-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
-                <div>
-                  <p className="text-3xl md:text-4xl font-medium text-[#F0531C]">
-                    +5.6%
-                  </p>
-                  <p className="text-sm text-[#09332C]/70 mt-1">
-                    absolute increase in sign-up completion
-                  </p>
-                </div>
-                <div className="h-px sm:h-12 sm:w-px bg-[#09332C]/20 w-full sm:flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-[#09332C]/80 leading-relaxed">
-                    Proportional abandonment reduced at top of funnel, more users
-                    reached later stages, and a validated measurement framework
-                    was established for ongoing optimisation.
-                  </p>
-                </div>
-              </div>
-
-              {/* Pending */}
-              <div className="mt-6">
-                <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-3">
-                  Pending for future iteration
-                </p>
-                <ul className="space-y-1">
-                  <li className="text-sm text-foreground/60 leading-relaxed">
-                    -- Finalised payment timing decision outcomes
-                  </li>
-                  <li className="text-sm text-foreground/60 leading-relaxed">
-                    -- A/B testing results
-                  </li>
-                  <li className="text-sm text-foreground/60 leading-relaxed">
-                    -- Post-release impact on refunds, billing timing and customer service contacts
-                  </li>
-                </ul>
-              </div>
-            </Section>
-
-            {/* Learnings */}
-            <Section id="learnings" title="Reflection & Learnings">
-              <ul className="space-y-4">
-                {project.learnings.map((learning, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3"
-                  >
-                    <span className="text-xs bg-[#09332C] text-[#FFA74F] px-2 py-1 rounded-sm flex-shrink-0 font-medium mt-0.5">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <p className="text-sm text-foreground/80 leading-relaxed">
-                      {learning}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </Section>
+        {/* ── The Problem ── */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#F0531C]/10">
+              <AlertTriangle size={20} className="text-[#F0531C]" />
+            </div>
+            <h2 className="text-2xl font-serif text-foreground">The Problem</h2>
           </div>
 
-          {/* Sticky Sidebar - Desktop Only */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-28">
-              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">
-                On this page
-              </p>
-              <nav className="space-y-2">
-                {sections.map((section) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className="block text-sm text-muted-foreground hover:text-accent transition-colors duration-200 py-1"
-                  >
-                    {section.label}
-                  </a>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-card rounded-lg p-6 border border-border">
+              <h3 className="text-xs font-medium uppercase tracking-wider text-[#F0531C] mb-4">User pain points</h3>
+              <ul className="space-y-4">
+                {[
+                  "Sign-up felt unclear -- users confused subscription activation with account creation",
+                  "Navigation broke down: users couldn't find meals or return to previous steps",
+                  "Checkout muddled subscription vs on-demand ordering and when payment would happen",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/80 leading-relaxed">
+                    <span className="w-5 h-5 rounded-full bg-[#F0531C]/10 text-[#F0531C] text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">{i + 1}</span>
+                    {item}
+                  </li>
                 ))}
-              </nav>
+              </ul>
             </div>
-          </aside>
-        </div>
 
-        {/* Next/Prev Navigation */}
-        <nav className="mt-16 pt-8 border-t border-border/50">
-          <div className="flex flex-col sm:flex-row justify-between gap-4">
+            <div className="bg-card rounded-lg p-6 border border-border">
+              <h3 className="text-xs font-medium uppercase tracking-wider text-[#09332C] mb-4">Business pain points</h3>
+              <ul className="space-y-4">
+                {[
+                  "60+ incomplete sign-ups per week with users still expecting delivery",
+                  "~R1,296,000/year estimated revenue leaking through the funnel",
+                  "56% of first billings occurred 1-5 days post sign-up -- expectation misalignment",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/80 leading-relaxed">
+                    <span className="w-5 h-5 rounded-full bg-[#09332C]/10 text-[#09332C] text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">{i + 1}</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Users & Scope ── */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2E4B3C]/10">
+              <Users size={20} className="text-[#2E4B3C]" />
+            </div>
+            <h2 className="text-2xl font-serif text-foreground">Users & Scope</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-[#F7EDDA] rounded-lg p-6">
+              <h3 className="text-xs font-medium uppercase tracking-wider text-[#09332C]/60 mb-3">Primary users</h3>
+              <p className="text-sm text-[#09332C] leading-relaxed">
+                Prospective UCOOK customers attempting to sign up and place their first order within a subscription-led model.
+              </p>
+            </div>
+            <div className="bg-[#F7EDDA] rounded-lg p-6">
+              <h3 className="text-xs font-medium uppercase tracking-wider text-[#09332C]/60 mb-3">Out of scope</h3>
+              <p className="text-sm text-[#09332C] leading-relaxed">
+                Existing customers managing their accounts post sign-up, except where pause/reactivation behaviour surfaced as supporting context.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Goals ── */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#FFA74F]/15">
+              <Target size={20} className="text-[#FFA74F]" />
+            </div>
+            <h2 className="text-2xl font-serif text-foreground">Goals</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {project.goals.map((goal, i) => (
+              <div key={i} className="flex items-start gap-4 bg-card rounded-lg p-5 border border-border">
+                <span className="text-2xl font-serif text-[#F0531C]/30 font-medium leading-none">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground leading-relaxed">{goal}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Constraints ── */}
+        <section className="mb-20">
+          <div className="bg-[#09332C] rounded-lg p-8">
+            <h2 className="text-xs font-medium uppercase tracking-wider text-[#FFA74F] mb-6">Constraints</h2>
+            <div className="space-y-4">
+              {[
+                "No clearly defined baseline funnel existed, preventing effective unmoderated testing",
+                "Subscription and billing logic was complex and poorly aligned with user mental models",
+                "Introducing payment earlier carried operational risk due to frequent order changes and refund overhead",
+              ].map((constraint, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <span className="text-xs font-medium text-[#FFA74F] bg-[#FFA74F]/15 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <p className="text-sm text-[#F7EDDA]/80 leading-relaxed">{constraint}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Process: 7-stage research ── */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#09332C]/10">
+              <Search size={20} className="text-[#09332C]" />
+            </div>
+            <h2 className="text-2xl font-serif text-foreground">Research Process</h2>
+          </div>
+          <p className="text-sm text-foreground/60 mb-8">Seven-stage mixed-methods investigation</p>
+
+          <div className="space-y-0">
+            {[
+              { step: "01", title: "Customer service interviews", desc: "Reviewed logs, tracked complaint categories. Identified repeated contact drivers and flagged incomplete sign-ups where users believed they had successfully ordered." },
+              { step: "02", title: "Internal survey", desc: "16 responses focused on sign-up and subscription pausing. 55% of feedback highlighted unclear communication. Sign-up scored 6/10 vs 8/10 for pause." },
+              { step: "03", title: "Competitive benchmarking", desc: "Reviewed Marley Spoon, Taste Box and Hello Fresh sign-up funnels. Identified consistent patterns: clearly structured steps with a definitive payment action." },
+              { step: "04", title: "Heuristic evaluation", desc: "Evaluated against Nielsen's 10 heuristics. Issues clustered into three themes: communication, navigation and UI optimisation." },
+              { step: "05", title: "Unmoderated testing (Maze)", desc: "Attempted Maze testing. Critical blocker: no single, clearly defined happy path funnel existed to test against." },
+              { step: "06", title: "Moderated usability testing", desc: "Three moderated sessions. Surfaced recurring issues around navigation, plan selection, pricing clarity and subscription vs on-demand confusion." },
+              { step: "07", title: "Measurement planning", desc: "Defined Tag Manager triggers across each funnel step. Tooling: GA, GTM, PostHog heatmaps and session recordings." },
+            ].map((step, i, arr) => (
+              <div key={step.step} className="flex gap-5">
+                {/* Timeline line */}
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 rounded-full bg-[#09332C] text-[#FFA74F] text-xs font-medium flex items-center justify-center flex-shrink-0">
+                    {step.step}
+                  </div>
+                  {i < arr.length - 1 && <div className="w-px flex-1 bg-border my-1" />}
+                </div>
+                <div className="pb-8">
+                  <h3 className="text-base font-medium text-foreground mb-1">{step.title}</h3>
+                  <p className="text-sm text-foreground/70 leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Key Insights ── */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#F0531C]/10">
+              <Lightbulb size={20} className="text-[#F0531C]" />
+            </div>
+            <h2 className="text-2xl font-serif text-foreground">Key Insights</h2>
+          </div>
+
+          <div className="space-y-4">
+            {project.insights.map((insight, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 p-5 rounded-lg bg-card border border-border hover:border-[#F0531C]/30 transition-colors duration-200"
+              >
+                <span className="text-lg font-serif text-[#F0531C]/40 font-medium leading-none mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/80 leading-relaxed">{insight}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Highlight callout */}
+          <div className="mt-8 bg-[#FFA74F]/10 border-l-4 border-[#FFA74F] rounded-r-lg p-5">
+            <p className="text-sm text-foreground font-medium mb-1">Critical finding</p>
+            <p className="text-sm text-foreground/70 leading-relaxed">
+              All test participants expected to pay immediately, with payment acting as task completion. This single insight reshaped the entire solution direction.
+            </p>
+          </div>
+        </section>
+
+        {/* ── Solution ── */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2E4B3C]/10">
+              <Layers size={20} className="text-[#2E4B3C]" />
+            </div>
+            <h2 className="text-2xl font-serif text-foreground">Solution</h2>
+          </div>
+
+          <p className="text-base text-foreground/80 leading-relaxed mb-8">
+            Evidence across multiple research streams established sign-up as the highest-impact usability issue. The solution split into two workstreams:
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            <div className="bg-[#F7EDDA] rounded-lg p-6 border border-[#F7DFBA]">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-2 h-2 rounded-full bg-[#FFA74F]" />
+                <h3 className="text-xs font-medium uppercase tracking-wider text-[#09332C]/60">Quick wins</h3>
+              </div>
+              <p className="text-sm text-[#09332C]/80 leading-relaxed">
+                Communication gaps, navigation clarity and UI improvements that could be shipped independently without structural changes.
+              </p>
+            </div>
+            <div className="bg-[#09332C] rounded-lg p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-2 h-2 rounded-full bg-[#F0531C]" />
+                <h3 className="text-xs font-medium uppercase tracking-wider text-[#FFA74F]">Structural redesign</h3>
+              </div>
+              <p className="text-sm text-[#F7EDDA]/80 leading-relaxed">
+                Redesigning the sign-up funnel into a measurable happy path with a key decision: whether payment should be included within sign-up.
+              </p>
+            </div>
+          </div>
+
+          {/* Technical delivery */}
+          <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/50 mb-5">Design-to-dev handoff specs</h3>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { title: "scrollIntoView()", desc: "Guides users to relevant content during step transitions and validation errors" },
+              { title: "Sticky header", desc: "Maintains orientation and access to navigation during sign-up" },
+              { title: "Form validation", desc: "Prevents incomplete or invalid submissions with clear error states" },
+              { title: "Progress tracking", desc: "Triggers aligned to funnel steps for analytics and measurement" },
+            ].map((spec) => (
+              <div key={spec.title} className="bg-card rounded-lg p-5 border border-border">
+                <p className="text-sm font-mono font-medium text-foreground mb-1">{spec.title}</p>
+                <p className="text-xs text-foreground/60 leading-relaxed">{spec.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Results ── */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#F0531C]/10">
+              <BarChart3 size={20} className="text-[#F0531C]" />
+            </div>
+            <h2 className="text-2xl font-serif text-foreground">Results</h2>
+          </div>
+
+          {/* Funnel comparison */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {/* Old funnel */}
+            <div className="bg-card rounded-lg p-6 border border-border">
+              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/40 mb-6">Old funnel</h3>
+              <div className="space-y-5">
+                {[
+                  { label: "Entered", users: 405, pct: 100 },
+                  { label: "Step 2", users: 36, pct: 8.9 },
+                  { label: "Completed", users: 15, pct: 3.7 },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <div className="flex justify-between text-xs text-foreground/50 mb-1.5">
+                      <span>{row.label}</span>
+                      <span>{row.users} users</span>
+                    </div>
+                    <div className="h-2.5 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-foreground/20 rounded-full transition-all duration-500" style={{ width: `${row.pct}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-3xl font-serif text-foreground/30 mt-6">3.7%</p>
+              <p className="text-xs text-foreground/40">completion rate</p>
+            </div>
+
+            {/* New funnel */}
+            <div className="bg-[#09332C] rounded-lg p-6">
+              <h3 className="text-xs font-medium uppercase tracking-wider text-[#FFA74F] mb-6">New funnel</h3>
+              <div className="space-y-5">
+                {[
+                  { label: "Entered", users: 1994, pct: 100, color: "bg-[#F0531C]" },
+                  { label: "Step 2", users: 499, pct: 25, color: "bg-[#F0531C]" },
+                  { label: "Step 3", users: 236, pct: 11.8, color: "bg-[#FFA74F]" },
+                  { label: "Completed", users: 185, pct: 9.3, color: "bg-[#FFA74F]" },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <div className="flex justify-between text-xs text-[#F7EDDA]/50 mb-1.5">
+                      <span>{row.label}</span>
+                      <span>{row.users} users</span>
+                    </div>
+                    <div className="h-2.5 bg-[#2E4B3C] rounded-full overflow-hidden">
+                      <div className={`h-full ${row.color} rounded-full transition-all duration-500`} style={{ width: `${row.pct}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-3xl font-serif text-[#F7EDDA] mt-6">9.3%</p>
+              <p className="text-xs text-[#F7EDDA]/50">completion rate</p>
+            </div>
+          </div>
+
+          {/* Net result callout */}
+          <div className="bg-[#F0531C] rounded-lg p-8 text-white">
+            <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+              <div className="flex-shrink-0">
+                <p className="text-4xl md:text-5xl font-serif font-medium">+5.6%</p>
+                <p className="text-sm text-white/70 mt-1">absolute increase</p>
+              </div>
+              <div className="h-px md:h-12 md:w-px bg-white/20 w-full md:flex-shrink-0" />
+              <p className="text-sm text-white/80 leading-relaxed">
+                Proportional abandonment reduced at top of funnel. More users reached later stages, indicating increased confidence and clarity. A validated measurement framework was established for ongoing optimisation.
+              </p>
+            </div>
+          </div>
+
+          {/* Pending */}
+          <div className="mt-8 bg-card rounded-lg p-6 border border-border">
+            <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/40 mb-4">Pending for future iteration</h3>
+            <ul className="space-y-2">
+              {[
+                "Finalised payment timing decision outcomes",
+                "A/B testing results",
+                "Post-release impact on refunds, billing timing and customer service contacts",
+              ].map((item, i) => (
+                <li key={i} className="text-sm text-foreground/60 leading-relaxed flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-foreground/30 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* ── Reflection ── */}
+        <section className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2E4B3C]/10">
+              <BookOpen size={20} className="text-[#2E4B3C]" />
+            </div>
+            <h2 className="text-2xl font-serif text-foreground">Reflection</h2>
+          </div>
+
+          <div className="space-y-4">
+            {project.learnings.map((learning, i) => (
+              <div key={i} className="flex items-start gap-4 p-5 bg-[#F7EDDA] rounded-lg">
+                <span className="text-xs font-medium text-[#09332C] bg-[#09332C]/10 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-[#09332C]/80 leading-relaxed">{learning}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Tools ── */}
+        <section className="mb-16 pb-16 border-b border-border">
+          <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/40 mb-4">Tools used</h3>
+          <div className="flex flex-wrap gap-2">
+            {project.tools.map((tool) => (
+              <span key={tool} className="text-xs px-3 py-1.5 rounded-full bg-card border border-border text-foreground/60">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* ── Navigation ── */}
+      <div className="border-t border-border bg-card">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <div className="flex flex-col sm:flex-row justify-between gap-6">
             {prevProject ? (
               <Link
                 href={`/projects/${prevProject.slug}`}
                 className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
-                <ArrowLeft
-                  size={16}
-                  className="group-hover:-translate-x-1 transition-transform duration-200"
-                />
+                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-200" />
                 <div>
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                    Previous
-                  </p>
-                  <p className="text-sm group-hover:text-accent transition-colors duration-200">
-                    {prevProject.title}
-                  </p>
+                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Previous</p>
+                  <p className="text-sm group-hover:text-[#F0531C] transition-colors duration-200">{prevProject.title}</p>
                 </div>
               </Link>
             ) : (
@@ -634,21 +472,14 @@ export function UCookCaseStudy({
                 className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200 sm:text-right"
               >
                 <div>
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                    Next
-                  </p>
-                  <p className="text-sm group-hover:text-accent transition-colors duration-200">
-                    {nextProject.title}
-                  </p>
+                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Next</p>
+                  <p className="text-sm group-hover:text-[#F0531C] transition-colors duration-200">{nextProject.title}</p>
                 </div>
-                <ArrowRight
-                  size={16}
-                  className="group-hover:translate-x-1 transition-transform duration-200"
-                />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
             )}
           </div>
-        </nav>
+        </div>
       </div>
     </div>
   );
