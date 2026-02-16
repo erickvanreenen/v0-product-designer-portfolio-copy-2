@@ -17,8 +17,8 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
         className={cn(
           "text-sm px-4 py-2 rounded-sm border-none transition-all duration-200",
           activeTag === null
-            ? "bg-[#C65D3B] text-white"
-            : "bg-[#6B7355] text-white hover:bg-[#C65D3B]"
+            ? "bg-[#F0531C] text-white"
+            : "bg-[#09332C] text-white hover:bg-[#F0531C]"
         )}
       >
         All
