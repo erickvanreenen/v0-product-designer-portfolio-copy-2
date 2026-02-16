@@ -16,12 +16,12 @@ export default function ProjectsPage() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-[#09332C] text-[#F7EDDA]">
+      <section className="bg-white">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F7EDDA] mb-4 text-balance">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#09332C] mb-4 text-balance">
             Projects
           </h1>
-          <p className="text-[#F7EDDA]/60 max-w-2xl leading-relaxed">
+          <p className="text-foreground/60 max-w-2xl leading-relaxed">
             A selection of UX/UI design work across e-commerce, mobile apps, and
             digital products. Each project represents a journey of research,
             iteration, and thoughtful problem-solving.

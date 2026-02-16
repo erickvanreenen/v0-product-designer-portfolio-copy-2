@@ -16,10 +16,10 @@ export default function HomePage() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section className="bg-[#09332C] text-[#F7EDDA]">
+      <section className="bg-white">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-36">
-          <p className="text-sm text-[#FFA74F] font-medium uppercase tracking-wider mb-6">UX/UI Designer</p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-[#F7EDDA] max-w-3xl text-balance">
+          <p className="text-sm text-[#F0531C] font-medium uppercase tracking-wider mb-6">UX/UI Designer</p>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-[#09332C] max-w-3xl text-balance">
             I&apos;m an experienced designer with a passion for how exceptional
             design impacts users&apos; lives, blending creativity, empathy, and
             kindness in everything I create.
@@ -34,7 +34,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#F7EDDA]/20 text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F7EDDA]/10 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#09332C]/20 text-[#09332C] text-sm font-medium rounded-full hover:bg-[#09332C]/5 transition-all duration-200"
             >
               Get in touch
             </Link>

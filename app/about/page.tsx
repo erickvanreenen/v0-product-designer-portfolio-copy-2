@@ -44,12 +44,12 @@ export default function AboutPage() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section className="bg-[#09332C] text-[#F7EDDA]">
+      <section className="bg-white">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F7EDDA] mb-6 text-balance">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#09332C] mb-6 text-balance">
             Relentless Curiosity
           </h1>
-          <p className="text-lg md:text-xl text-[#F7EDDA]/60 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/60 max-w-3xl leading-relaxed">
             I am an experienced designer with a diverse background in
             entrepreneurship, business development, branding, product design,
             visual and online education design, and UX/UI.
