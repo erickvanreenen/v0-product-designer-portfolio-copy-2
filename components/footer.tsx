@@ -7,7 +7,7 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <p className="text-2xl font-serif text-[#F7EDDA] mb-3">
+            <p className="text-2xl font-semibold text-[#F7EDDA] mb-3">
               Let&apos;s work together
             </p>
             <p className="text-sm text-[#F7EDDA]/50 max-w-md leading-relaxed">

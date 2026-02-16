@@ -11,6 +11,17 @@ interface UCookCaseStudyProps {
   prevProject?: Project;
 }
 
+function SectionHeader({ icon: Icon, title }: { icon: React.ElementType; title: string }) {
+  return (
+    <div className="bg-white rounded-xl px-6 py-5 mb-8 flex items-center gap-3 shadow-sm border border-border/40">
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#09332C]/8">
+        <Icon size={20} className="text-[#09332C]" />
+      </div>
+      <h2 className="text-xl md:text-2xl font-semibold text-[#09332C]">{title}</h2>
+    </div>
+  );
+}
+
 export function UCookCaseStudy({
   project,
   nextProject,
@@ -37,10 +48,10 @@ export function UCookCaseStudy({
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-[#F7EDDA] mb-4 tracking-tight text-balance">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F7EDDA] mb-4 tracking-tight text-balance">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-[#FFA74F] font-normal max-w-3xl leading-relaxed mb-6">
+          <p className="text-xl md:text-2xl text-[#FFA74F] font-medium max-w-3xl leading-relaxed mb-6">
             Sign-up usability investigation and funnel redesign
           </p>
           <p className="text-base text-[#F7EDDA]/70 max-w-2xl leading-relaxed">
@@ -69,16 +80,16 @@ export function UCookCaseStudy({
         <div className="max-w-6xl mx-auto px-6 py-10 md:py-14">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center">
             <div className="text-center md:text-left">
-              <p className="text-4xl md:text-5xl font-serif font-medium">3.7%</p>
+              <p className="text-4xl md:text-5xl font-bold">3.7%</p>
               <p className="text-sm text-white/70 mt-1">old completion rate</p>
             </div>
             <div className="text-center flex flex-col items-center">
               <TrendingUp size={32} className="mb-2 text-white/80" />
-              <p className="text-4xl md:text-5xl font-serif font-medium">9.3%</p>
+              <p className="text-4xl md:text-5xl font-bold">9.3%</p>
               <p className="text-sm text-white/70 mt-1">new completion rate</p>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-4xl md:text-5xl font-serif font-medium">~R1.3M</p>
+              <p className="text-4xl md:text-5xl font-bold">~R1.3M</p>
               <p className="text-sm text-white/70 mt-1">annual revenue impact addressed</p>
             </div>
           </div>
@@ -90,7 +101,7 @@ export function UCookCaseStudy({
 
         {/* ── Narrative Opening ── */}
         <section className="mb-20">
-          <p className="text-lg md:text-xl text-foreground leading-relaxed font-serif">
+          <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
             Customer service data told a clear story: users were completing what they believed was sign-up, then contacting support asking where their deliveries were. Over 60 incomplete sign-ups in a single week. Retention through the path sat at 1.43%.
           </p>
           <p className="text-base text-foreground/70 leading-relaxed mt-6">
@@ -100,40 +111,35 @@ export function UCookCaseStudy({
 
         {/* ── The Problem ── */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#F0531C]/10">
-              <AlertTriangle size={20} className="text-[#F0531C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">The Problem</h2>
-          </div>
+          <SectionHeader icon={AlertTriangle} title="The Problem" />
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-card rounded-lg p-6 border border-border">
-              <h3 className="text-xs font-medium uppercase tracking-wider text-[#F0531C] mb-4">User pain points</h3>
+            <div className="bg-white rounded-xl p-6 border border-border/40 shadow-sm">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#F0531C] mb-4">User pain points</h3>
               <ul className="space-y-4">
                 {[
                   "Sign-up felt unclear -- users confused subscription activation with account creation",
                   "Navigation broke down: users couldn't find meals or return to previous steps",
                   "Checkout muddled subscription vs on-demand ordering and when payment would happen",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/80 leading-relaxed">
-                    <span className="w-5 h-5 rounded-full bg-[#F0531C]/10 text-[#F0531C] text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">{i + 1}</span>
+                  <li key={i} className="flex items-start gap-3 text-sm text-[#09332C]/80 leading-relaxed">
+                    <span className="w-5 h-5 rounded-full bg-[#F0531C]/10 text-[#F0531C] text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-semibold">{i + 1}</span>
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-card rounded-lg p-6 border border-border">
-              <h3 className="text-xs font-medium uppercase tracking-wider text-[#09332C] mb-4">Business pain points</h3>
+            <div className="bg-white rounded-xl p-6 border border-border/40 shadow-sm">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#09332C] mb-4">Business pain points</h3>
               <ul className="space-y-4">
                 {[
                   "60+ incomplete sign-ups per week with users still expecting delivery",
                   "~R1,296,000/year estimated revenue leaking through the funnel",
                   "56% of first billings occurred 1-5 days post sign-up -- expectation misalignment",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-foreground/80 leading-relaxed">
-                    <span className="w-5 h-5 rounded-full bg-[#09332C]/10 text-[#09332C] text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">{i + 1}</span>
+                  <li key={i} className="flex items-start gap-3 text-sm text-[#09332C]/80 leading-relaxed">
+                    <span className="w-5 h-5 rounded-full bg-[#09332C]/10 text-[#09332C] text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-semibold">{i + 1}</span>
                     {item}
                   </li>
                 ))}
@@ -144,22 +150,17 @@ export function UCookCaseStudy({
 
         {/* ── Users & Scope ── */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2E4B3C]/10">
-              <Users size={20} className="text-[#2E4B3C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Users & Scope</h2>
-          </div>
+          <SectionHeader icon={Users} title="Users & Scope" />
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-[#F7EDDA] rounded-lg p-6">
-              <h3 className="text-xs font-medium uppercase tracking-wider text-[#09332C]/60 mb-3">Primary users</h3>
+            <div className="bg-[#F7EDDA] rounded-xl p-6">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#09332C]/60 mb-3">Primary users</h3>
               <p className="text-sm text-[#09332C] leading-relaxed">
                 Prospective UCOOK customers attempting to sign up and place their first order within a subscription-led model.
               </p>
             </div>
-            <div className="bg-[#F7EDDA] rounded-lg p-6">
-              <h3 className="text-xs font-medium uppercase tracking-wider text-[#09332C]/60 mb-3">Out of scope</h3>
+            <div className="bg-[#F7EDDA] rounded-xl p-6">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#09332C]/60 mb-3">Out of scope</h3>
               <p className="text-sm text-[#09332C] leading-relaxed">
                 Existing customers managing their accounts post sign-up, except where pause/reactivation behaviour surfaced as supporting context.
               </p>
@@ -169,18 +170,13 @@ export function UCookCaseStudy({
 
         {/* ── Goals ── */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#FFA74F]/15">
-              <Target size={20} className="text-[#FFA74F]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Goals</h2>
-          </div>
+          <SectionHeader icon={Target} title="Goals" />
 
           <div className="grid sm:grid-cols-2 gap-4">
             {project.goals.map((goal, i) => (
-              <div key={i} className="flex items-start gap-4 bg-card rounded-lg p-5 border border-border">
-                <span className="text-2xl font-serif text-[#F0531C]/30 font-medium leading-none">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-foreground leading-relaxed">{goal}</p>
+              <div key={i} className="flex items-start gap-4 bg-white rounded-xl p-5 border border-border/40 shadow-sm">
+                <span className="text-2xl text-[#F0531C]/30 font-bold leading-none">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-[#09332C] leading-relaxed">{goal}</p>
               </div>
             ))}
           </div>
@@ -188,8 +184,8 @@ export function UCookCaseStudy({
 
         {/* ── Constraints ── */}
         <section className="mb-20">
-          <div className="bg-[#09332C] rounded-lg p-8">
-            <h2 className="text-xs font-medium uppercase tracking-wider text-[#FFA74F] mb-6">Constraints</h2>
+          <div className="bg-[#09332C] rounded-xl p-8">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-[#FFA74F] mb-6">Constraints</h2>
             <div className="space-y-4">
               {[
                 "No clearly defined baseline funnel existed, preventing effective unmoderated testing",
@@ -197,7 +193,7 @@ export function UCookCaseStudy({
                 "Introducing payment earlier carried operational risk due to frequent order changes and refund overhead",
               ].map((constraint, i) => (
                 <div key={i} className="flex items-start gap-4">
-                  <span className="text-xs font-medium text-[#FFA74F] bg-[#FFA74F]/15 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-xs font-semibold text-[#FFA74F] bg-[#FFA74F]/15 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
                   <p className="text-sm text-[#F7EDDA]/80 leading-relaxed">{constraint}</p>
                 </div>
               ))}
@@ -207,12 +203,7 @@ export function UCookCaseStudy({
 
         {/* ── Process: 7-stage research ── */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#09332C]/10">
-              <Search size={20} className="text-[#09332C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Research Process</h2>
-          </div>
+          <SectionHeader icon={Search} title="Research Process" />
           <p className="text-sm text-foreground/60 mb-8">Seven-stage mixed-methods investigation</p>
 
           <div className="space-y-0">
@@ -228,13 +219,13 @@ export function UCookCaseStudy({
               <div key={step.step} className="flex gap-5">
                 {/* Timeline line */}
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#09332C] text-[#FFA74F] text-xs font-medium flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#09332C] text-[#FFA74F] text-xs font-semibold flex items-center justify-center flex-shrink-0">
                     {step.step}
                   </div>
                   {i < arr.length - 1 && <div className="w-px flex-1 bg-border my-1" />}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-base font-medium text-foreground mb-1">{step.title}</h3>
+                  <h3 className="text-base font-semibold text-[#09332C] mb-1">{step.title}</h3>
                   <p className="text-sm text-foreground/70 leading-relaxed">{step.desc}</p>
                 </div>
               </div>
@@ -244,29 +235,24 @@ export function UCookCaseStudy({
 
         {/* ── Key Insights ── */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#F0531C]/10">
-              <Lightbulb size={20} className="text-[#F0531C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Key Insights</h2>
-          </div>
+          <SectionHeader icon={Lightbulb} title="Key Insights" />
 
           <div className="space-y-4">
             {project.insights.map((insight, i) => (
               <div
                 key={i}
-                className="flex items-start gap-4 p-5 rounded-lg bg-card border border-border hover:border-[#F0531C]/30 transition-colors duration-200"
+                className="flex items-start gap-4 p-5 rounded-xl bg-white border border-border/40 shadow-sm hover:border-[#F0531C]/30 transition-colors duration-200"
               >
-                <span className="text-lg font-serif text-[#F0531C]/40 font-medium leading-none mt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-foreground/80 leading-relaxed">{insight}</p>
+                <span className="text-lg text-[#F0531C]/40 font-bold leading-none mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-[#09332C]/80 leading-relaxed">{insight}</p>
               </div>
             ))}
           </div>
 
           {/* Highlight callout */}
-          <div className="mt-8 bg-[#FFA74F]/10 border-l-4 border-[#FFA74F] rounded-r-lg p-5">
-            <p className="text-sm text-foreground font-medium mb-1">Critical finding</p>
-            <p className="text-sm text-foreground/70 leading-relaxed">
+          <div className="mt-8 bg-[#FFA74F]/10 border-l-4 border-[#FFA74F] rounded-r-xl p-5">
+            <p className="text-sm text-[#09332C] font-semibold mb-1">Critical finding</p>
+            <p className="text-sm text-[#09332C]/70 leading-relaxed">
               All test participants expected to pay immediately, with payment acting as task completion. This single insight reshaped the entire solution direction.
             </p>
           </div>
@@ -274,31 +260,26 @@ export function UCookCaseStudy({
 
         {/* ── Solution ── */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2E4B3C]/10">
-              <Layers size={20} className="text-[#2E4B3C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Solution</h2>
-          </div>
+          <SectionHeader icon={Layers} title="Solution" />
 
           <p className="text-base text-foreground/80 leading-relaxed mb-8">
             Evidence across multiple research streams established sign-up as the highest-impact usability issue. The solution split into two workstreams:
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <div className="bg-[#F7EDDA] rounded-lg p-6 border border-[#F7DFBA]">
+            <div className="bg-[#F7EDDA] rounded-xl p-6 border border-[#F7DFBA]">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-2 h-2 rounded-full bg-[#FFA74F]" />
-                <h3 className="text-xs font-medium uppercase tracking-wider text-[#09332C]/60">Quick wins</h3>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-[#09332C]/60">Quick wins</h3>
               </div>
               <p className="text-sm text-[#09332C]/80 leading-relaxed">
                 Communication gaps, navigation clarity and UI improvements that could be shipped independently without structural changes.
               </p>
             </div>
-            <div className="bg-[#09332C] rounded-lg p-6">
+            <div className="bg-[#09332C] rounded-xl p-6">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-2 h-2 rounded-full bg-[#F0531C]" />
-                <h3 className="text-xs font-medium uppercase tracking-wider text-[#FFA74F]">Structural redesign</h3>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-[#FFA74F]">Structural redesign</h3>
               </div>
               <p className="text-sm text-[#F7EDDA]/80 leading-relaxed">
                 Redesigning the sign-up funnel into a measurable happy path with a key decision: whether payment should be included within sign-up.
@@ -307,7 +288,7 @@ export function UCookCaseStudy({
           </div>
 
           {/* Technical delivery */}
-          <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/50 mb-5">Design-to-dev handoff specs</h3>
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/50 mb-5">Design-to-dev handoff specs</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               { title: "scrollIntoView()", desc: "Guides users to relevant content during step transitions and validation errors" },
@@ -315,8 +296,8 @@ export function UCookCaseStudy({
               { title: "Form validation", desc: "Prevents incomplete or invalid submissions with clear error states" },
               { title: "Progress tracking", desc: "Triggers aligned to funnel steps for analytics and measurement" },
             ].map((spec) => (
-              <div key={spec.title} className="bg-card rounded-lg p-5 border border-border">
-                <p className="text-sm font-mono font-medium text-foreground mb-1">{spec.title}</p>
+              <div key={spec.title} className="bg-white rounded-xl p-5 border border-border/40 shadow-sm">
+                <p className="text-sm font-mono font-semibold text-[#09332C] mb-1">{spec.title}</p>
                 <p className="text-xs text-foreground/60 leading-relaxed">{spec.desc}</p>
               </div>
             ))}
@@ -325,18 +306,13 @@ export function UCookCaseStudy({
 
         {/* ── Results ── */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#F0531C]/10">
-              <BarChart3 size={20} className="text-[#F0531C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Results</h2>
-          </div>
+          <SectionHeader icon={BarChart3} title="Results" />
 
           {/* Funnel comparison */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {/* Old funnel */}
-            <div className="bg-card rounded-lg p-6 border border-border">
-              <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/40 mb-6">Old funnel</h3>
+            <div className="bg-white rounded-xl p-6 border border-border/40 shadow-sm">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/40 mb-6">Old funnel</h3>
               <div className="space-y-5">
                 {[
                   { label: "Entered", users: 405, pct: 100 },
@@ -354,13 +330,13 @@ export function UCookCaseStudy({
                   </div>
                 ))}
               </div>
-              <p className="text-3xl font-serif text-foreground/30 mt-6">3.7%</p>
+              <p className="text-3xl font-bold text-foreground/30 mt-6">3.7%</p>
               <p className="text-xs text-foreground/40">completion rate</p>
             </div>
 
             {/* New funnel */}
-            <div className="bg-[#09332C] rounded-lg p-6">
-              <h3 className="text-xs font-medium uppercase tracking-wider text-[#FFA74F] mb-6">New funnel</h3>
+            <div className="bg-[#09332C] rounded-xl p-6">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#FFA74F] mb-6">New funnel</h3>
               <div className="space-y-5">
                 {[
                   { label: "Entered", users: 1994, pct: 100, color: "bg-[#F0531C]" },
@@ -379,16 +355,16 @@ export function UCookCaseStudy({
                   </div>
                 ))}
               </div>
-              <p className="text-3xl font-serif text-[#F7EDDA] mt-6">9.3%</p>
+              <p className="text-3xl font-bold text-[#F7EDDA] mt-6">9.3%</p>
               <p className="text-xs text-[#F7EDDA]/50">completion rate</p>
             </div>
           </div>
 
           {/* Net result callout */}
-          <div className="bg-[#F0531C] rounded-lg p-8 text-white">
+          <div className="bg-[#F0531C] rounded-xl p-8 text-white">
             <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
               <div className="flex-shrink-0">
-                <p className="text-4xl md:text-5xl font-serif font-medium">+5.6%</p>
+                <p className="text-4xl md:text-5xl font-bold">+5.6%</p>
                 <p className="text-sm text-white/70 mt-1">absolute increase</p>
               </div>
               <div className="h-px md:h-12 md:w-px bg-white/20 w-full md:flex-shrink-0" />
@@ -399,8 +375,8 @@ export function UCookCaseStudy({
           </div>
 
           {/* Pending */}
-          <div className="mt-8 bg-card rounded-lg p-6 border border-border">
-            <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/40 mb-4">Pending for future iteration</h3>
+          <div className="mt-8 bg-white rounded-xl p-6 border border-border/40 shadow-sm">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/40 mb-4">Pending for future iteration</h3>
             <ul className="space-y-2">
               {[
                 "Finalised payment timing decision outcomes",
@@ -418,17 +394,12 @@ export function UCookCaseStudy({
 
         {/* ── Reflection ── */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2E4B3C]/10">
-              <BookOpen size={20} className="text-[#2E4B3C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Reflection</h2>
-          </div>
+          <SectionHeader icon={BookOpen} title="Reflection" />
 
           <div className="space-y-4">
             {project.learnings.map((learning, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 bg-[#F7EDDA] rounded-lg">
-                <span className="text-xs font-medium text-[#09332C] bg-[#09332C]/10 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
+              <div key={i} className="flex items-start gap-4 p-5 bg-[#F7EDDA] rounded-xl">
+                <span className="text-xs font-semibold text-[#09332C] bg-[#09332C]/10 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
                 <p className="text-sm text-[#09332C]/80 leading-relaxed">{learning}</p>
               </div>
             ))}
@@ -437,10 +408,10 @@ export function UCookCaseStudy({
 
         {/* ── Tools ── */}
         <section className="mb-16 pb-16 border-b border-border">
-          <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/40 mb-4">Tools used</h3>
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/40 mb-4">Tools used</h3>
           <div className="flex flex-wrap gap-2">
             {project.tools.map((tool) => (
-              <span key={tool} className="text-xs px-3 py-1.5 rounded-full bg-card border border-border text-foreground/60">
+              <span key={tool} className="text-xs px-3 py-1.5 rounded-full bg-white border border-border/40 text-foreground/60">
                 {tool}
               </span>
             ))}
@@ -449,7 +420,7 @@ export function UCookCaseStudy({
       </div>
 
       {/* ── Navigation ── */}
-      <div className="border-t border-border bg-card">
+      <div className="border-t border-border bg-white">
         <div className="max-w-4xl mx-auto px-6 py-10">
           <div className="flex flex-col sm:flex-row justify-between gap-6">
             {prevProject ? (

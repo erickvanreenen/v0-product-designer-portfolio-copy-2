@@ -37,7 +37,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="bg-[#09332C] text-[#F7EDDA]">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-[#F7EDDA] mb-6 text-balance">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F7EDDA] mb-6 text-balance">
             Let&apos;s connect
           </h1>
           <p className="text-lg text-[#F7EDDA]/60 max-w-2xl leading-relaxed">
@@ -53,7 +53,7 @@ export default function ContactPage() {
           <div className="mb-16 lg:mb-0">
             {isSubmitted ? (
               <div className="bg-[#F7EDDA] rounded-lg p-10 text-center">
-                <h2 className="text-xl font-serif text-[#09332C] mb-2">
+                <h2 className="text-xl font-semibold text-[#09332C] mb-2">
                   Thank you for reaching out!
                 </h2>
                 <p className="text-[#09332C]/60 mb-6">

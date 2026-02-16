@@ -11,6 +11,17 @@ interface CaseStudyLayoutProps {
   prevProject?: Project;
 }
 
+function SectionHeader({ icon: Icon, title }: { icon: React.ElementType; title: string }) {
+  return (
+    <div className="bg-white rounded-xl px-6 py-5 mb-8 flex items-center gap-3 shadow-sm border border-border/40">
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#09332C]/8">
+        <Icon size={20} className="text-[#09332C]" />
+      </div>
+      <h2 className="text-xl md:text-2xl font-semibold text-[#09332C]">{title}</h2>
+    </div>
+  );
+}
+
 export function CaseStudyLayout({
   project,
   nextProject,
@@ -37,10 +48,10 @@ export function CaseStudyLayout({
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-[#F7EDDA] mb-4 tracking-tight text-balance">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F7EDDA] mb-4 tracking-tight text-balance">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-[#FFA74F] font-normal max-w-3xl leading-relaxed mb-6">
+          <p className="text-xl md:text-2xl text-[#FFA74F] font-medium max-w-3xl leading-relaxed mb-6">
             {project.subtitle}
           </p>
           <p className="text-base text-[#F7EDDA]/70 max-w-2xl leading-relaxed">
@@ -79,11 +90,11 @@ export function CaseStudyLayout({
       {/* ── Key Outcomes Banner ── */}
       <section className="bg-[#F0531C] text-white">
         <div className="max-w-6xl mx-auto px-6 py-10">
-          <p className="text-xs font-medium uppercase tracking-wider text-white/70 mb-4">Key Outcomes</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-4">Key Outcomes</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {project.outcomes.map((outcome, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-white/15 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">{i + 1}</span>
+                <span className="w-6 h-6 rounded-full bg-white/15 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-semibold">{i + 1}</span>
                 <p className="text-sm text-white/90 leading-relaxed">{outcome}</p>
               </div>
             ))}
@@ -96,24 +107,19 @@ export function CaseStudyLayout({
 
         {/* Context */}
         <section className="mb-20">
-          <p className="text-lg md:text-xl text-foreground leading-relaxed font-serif">
+          <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
             {project.context}
           </p>
         </section>
 
         {/* Goals */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#FFA74F]/15">
-              <Target size={20} className="text-[#FFA74F]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Goals</h2>
-          </div>
+          <SectionHeader icon={Target} title="Goals" />
           <div className="grid sm:grid-cols-2 gap-4">
             {project.goals.map((goal, i) => (
-              <div key={i} className="flex items-start gap-4 bg-card rounded-lg p-5 border border-border">
-                <span className="text-2xl font-serif text-[#F0531C]/30 font-medium leading-none">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-foreground leading-relaxed">{goal}</p>
+              <div key={i} className="flex items-start gap-4 bg-white rounded-xl p-5 border border-border/40 shadow-sm">
+                <span className="text-2xl text-[#F0531C]/30 font-bold leading-none">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-[#09332C] leading-relaxed">{goal}</p>
               </div>
             ))}
           </div>
@@ -121,31 +127,21 @@ export function CaseStudyLayout({
 
         {/* Research */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#09332C]/10">
-              <Search size={20} className="text-[#09332C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Research</h2>
-          </div>
+          <SectionHeader icon={Search} title="Research" />
           <p className="text-base text-foreground/80 leading-relaxed">{project.research}</p>
         </section>
 
         {/* Key Insights */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#F0531C]/10">
-              <Lightbulb size={20} className="text-[#F0531C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Key Insights</h2>
-          </div>
+          <SectionHeader icon={Lightbulb} title="Key Insights" />
           <div className="space-y-4">
             {project.insights.map((insight, i) => (
               <div
                 key={i}
-                className="flex items-start gap-4 p-5 rounded-lg bg-card border border-border hover:border-[#F0531C]/30 transition-colors duration-200"
+                className="flex items-start gap-4 p-5 rounded-xl bg-white border border-border/40 shadow-sm hover:border-[#F0531C]/30 transition-colors duration-200"
               >
-                <span className="text-lg font-serif text-[#F0531C]/40 font-medium leading-none mt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-foreground/80 leading-relaxed">{insight}</p>
+                <span className="text-lg text-[#F0531C]/40 font-bold leading-none mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-[#09332C]/80 leading-relaxed">{insight}</p>
               </div>
             ))}
           </div>
@@ -153,19 +149,14 @@ export function CaseStudyLayout({
 
         {/* IA & Flows */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2E4B3C]/10">
-              <Layers size={20} className="text-[#2E4B3C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Information Architecture & Flows</h2>
-          </div>
+          <SectionHeader icon={Layers} title="Information Architecture & Flows" />
           <p className="text-base text-foreground/80 leading-relaxed">{project.iaFlows}</p>
         </section>
 
         {/* Design */}
         <section className="mb-20">
-          <div className="bg-[#F7EDDA] rounded-lg p-8">
-            <h2 className="text-xs font-medium uppercase tracking-wider text-[#09332C]/60 mb-6">Design Exploration & Final UI</h2>
+          <div className="bg-[#F7EDDA] rounded-xl p-8">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-[#09332C]/60 mb-6">Design Exploration & Final UI</h2>
             <p className="text-base text-[#09332C]/80 leading-relaxed mb-4">{project.designExploration}</p>
             <p className="text-base text-[#09332C]/80 leading-relaxed">{project.finalUI}</p>
           </div>
@@ -173,35 +164,25 @@ export function CaseStudyLayout({
 
         {/* Testing */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#FFA74F]/15">
-              <BarChart3 size={20} className="text-[#FFA74F]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Testing & Validation</h2>
-          </div>
+          <SectionHeader icon={BarChart3} title="Testing & Validation" />
           <p className="text-base text-foreground/80 leading-relaxed">{project.testing}</p>
         </section>
 
         {/* Outcome */}
         <section className="mb-20">
-          <div className="bg-[#09332C] rounded-lg p-8">
-            <h2 className="text-xs font-medium uppercase tracking-wider text-[#FFA74F] mb-6">Outcome</h2>
+          <div className="bg-[#09332C] rounded-xl p-8">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-[#FFA74F] mb-6">Outcome</h2>
             <p className="text-base text-[#F7EDDA]/80 leading-relaxed">{project.outcome}</p>
           </div>
         </section>
 
         {/* Reflection */}
         <section className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#2E4B3C]/10">
-              <BookOpen size={20} className="text-[#2E4B3C]" />
-            </div>
-            <h2 className="text-2xl font-serif text-foreground">Reflection</h2>
-          </div>
+          <SectionHeader icon={BookOpen} title="Reflection" />
           <div className="space-y-4">
             {project.learnings.map((learning, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 bg-[#F7EDDA] rounded-lg">
-                <span className="text-xs font-medium text-[#09332C] bg-[#09332C]/10 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
+              <div key={i} className="flex items-start gap-4 p-5 bg-[#F7EDDA] rounded-xl">
+                <span className="text-xs font-semibold text-[#09332C] bg-[#09332C]/10 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
                 <p className="text-sm text-[#09332C]/80 leading-relaxed">{learning}</p>
               </div>
             ))}
@@ -210,10 +191,10 @@ export function CaseStudyLayout({
 
         {/* Tools */}
         <section className="mb-16 pb-16 border-b border-border">
-          <h3 className="text-xs font-medium uppercase tracking-wider text-foreground/40 mb-4">Tools used</h3>
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/40 mb-4">Tools used</h3>
           <div className="flex flex-wrap gap-2">
             {project.tools.map((tool) => (
-              <span key={tool} className="text-xs px-3 py-1.5 rounded-full bg-card border border-border text-foreground/60">
+              <span key={tool} className="text-xs px-3 py-1.5 rounded-full bg-white border border-border/40 text-foreground/60">
                 {tool}
               </span>
             ))}
@@ -222,7 +203,7 @@ export function CaseStudyLayout({
       </div>
 
       {/* ── Navigation ── */}
-      <div className="border-t border-border bg-card">
+      <div className="border-t border-border bg-white">
         <div className="max-w-4xl mx-auto px-6 py-10">
           <div className="flex flex-col sm:flex-row justify-between gap-6">
             {prevProject ? (

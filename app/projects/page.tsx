@@ -18,7 +18,7 @@ export default function ProjectsPage() {
       {/* Header */}
       <section className="bg-[#09332C] text-[#F7EDDA]">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-[#F7EDDA] mb-4 text-balance">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F7EDDA] mb-4 text-balance">
             Projects
           </h1>
           <p className="text-[#F7EDDA]/60 max-w-2xl leading-relaxed">

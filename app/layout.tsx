@@ -1,13 +1,8 @@
 import React from "react"
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
+import { Poppins } from "next/font/google";
 
-const _inter = Inter({ subsets: ["latin"] });
-const _sourceSerif = Source_Serif_4({ subsets: ["latin"] });
+const _poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
   title: "Erick van Reenen | UX/UI Designer",

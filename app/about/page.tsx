@@ -46,7 +46,7 @@ export default function AboutPage() {
       {/* ── Hero ── */}
       <section className="bg-[#09332C] text-[#F7EDDA]">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-[#F7EDDA] mb-6 text-balance">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F7EDDA] mb-6 text-balance">
             Relentless Curiosity
           </h1>
           <p className="text-lg md:text-xl text-[#F7EDDA]/60 max-w-3xl leading-relaxed">
@@ -63,7 +63,7 @@ export default function AboutPage() {
         <div className="lg:grid lg:grid-cols-[2fr_1fr] lg:gap-16 mb-20">
           <div className="mb-12 lg:mb-0">
             <div className="aspect-square max-w-md bg-[#09332C] rounded-lg flex items-center justify-center mb-8">
-              <span className="text-3xl font-serif text-[#F7EDDA]/20 select-none">EVR</span>
+              <span className="text-3xl font-bold text-[#F7EDDA]/20 select-none">EVR</span>
             </div>
 
             <div className="space-y-6">
@@ -131,7 +131,9 @@ export default function AboutPage() {
 
         {/* ── Ways of Working ── */}
         <section className="mb-20 pb-20 border-b border-border">
-          <h2 className="text-2xl font-serif text-foreground mb-10">Ways of Working</h2>
+          <div className="bg-white rounded-xl px-6 py-4 shadow-sm border border-border/40 inline-block mb-10">
+            <h2 className="text-xl md:text-2xl font-semibold text-[#09332C]">Ways of Working</h2>
+          </div>
           <div className="grid sm:grid-cols-2 gap-6">
             {waysOfWorking.map((way) => (
               <div key={way.title} className="p-6 bg-[#F7EDDA] rounded-lg hover:shadow-md transition-shadow duration-200">
@@ -144,7 +146,9 @@ export default function AboutPage() {
 
         {/* ── Experience ── */}
         <section className="mb-20 pb-20 border-b border-border">
-          <h2 className="text-2xl font-serif text-foreground mb-10">Experience</h2>
+          <div className="bg-white rounded-xl px-6 py-4 shadow-sm border border-border/40 inline-block mb-10">
+            <h2 className="text-xl md:text-2xl font-semibold text-[#09332C]">Experience</h2>
+          </div>
           <div className="space-y-0">
             {experience.map((exp, i, arr) => (
               <div key={exp.company} className="flex gap-6">
@@ -166,7 +170,9 @@ export default function AboutPage() {
 
         {/* ── Education ── */}
         <section className="mb-20 pb-20 border-b border-border">
-          <h2 className="text-2xl font-serif text-foreground mb-10">Education</h2>
+          <div className="bg-white rounded-xl px-6 py-4 shadow-sm border border-border/40 inline-block mb-10">
+            <h2 className="text-xl md:text-2xl font-semibold text-[#09332C]">Education</h2>
+          </div>
           <div className="space-y-6">
             {education.map((edu) => (
               <div key={edu.title} className="flex items-start gap-6">
@@ -183,7 +189,7 @@ export default function AboutPage() {
         {/* ── CTA ── */}
         <section>
           <div className="bg-[#F7EDDA] rounded-lg p-10 md:p-14">
-            <h2 className="text-2xl md:text-3xl font-serif text-[#09332C] mb-4 text-balance leading-snug">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#09332C] mb-4 text-balance leading-snug">
               Let&apos;s work together
             </h2>
             <p className="text-[#09332C]/60 mb-6 leading-relaxed max-w-lg">

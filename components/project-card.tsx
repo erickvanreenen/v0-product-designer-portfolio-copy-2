@@ -14,7 +14,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         {/* Thumbnail area */}
         <div className={`relative bg-[#09332C] overflow-hidden ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-3xl md:text-4xl font-serif text-[#F7EDDA]/20 select-none">{project.title}</span>
+            <span className="text-3xl md:text-4xl font-bold text-[#F7EDDA]/20 select-none">{project.title}</span>
           </div>
           <div className="absolute inset-0 bg-[#F0531C]/0 group-hover:bg-[#F0531C]/10 transition-colors duration-300" />
           <div className="absolute top-4 right-4">
@@ -37,7 +37,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             ))}
           </div>
 
-          <h3 className="text-lg font-serif font-medium text-foreground group-hover:text-[#F0531C] transition-colors duration-200 mb-1">
+          <h3 className="text-lg font-semibold text-foreground group-hover:text-[#F0531C] transition-colors duration-200 mb-1">
             {project.title}
           </h3>
           <p className="text-sm text-foreground/60 line-clamp-2 leading-relaxed">
