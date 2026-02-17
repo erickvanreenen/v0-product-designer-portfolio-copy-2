@@ -31,7 +31,7 @@ export default function ContactPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4">
             Contact
           </h1>
-          <p className="text-foreground/50">
+          <p className="text-[#F0531C]">
             Have a project in mind. Say hello.
           </p>
         </div>
