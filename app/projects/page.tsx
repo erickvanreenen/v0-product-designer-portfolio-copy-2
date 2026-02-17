@@ -20,7 +20,7 @@ export default function ProjectsPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4">
             Projects
           </h1>
-          <p className="text-foreground/50 max-w-lg">
+          <p className="text-[#F0531C] max-w-lg">
             UX work across e-commerce, apps and education.
           </p>
         </div>

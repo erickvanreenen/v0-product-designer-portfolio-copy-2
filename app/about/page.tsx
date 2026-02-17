@@ -41,7 +41,7 @@ export default function AboutPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-6">
             About
           </h1>
-          <p className="text-lg text-foreground/50 max-w-2xl">
+          <p className="text-lg text-[#F0531C] max-w-2xl">
             Senior UX Designer. Cape Town.
           </p>
         </div>

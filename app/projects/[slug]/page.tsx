@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { projects, getProjectBySlug } from "@/lib/projects";
 import { CaseStudyLayout } from "@/components/case-study-layout";
 import { UCookCaseStudy } from "@/components/ucook-case-study";
+import { FlanksourceCaseStudy } from "@/components/flanksource-case-study";
 import { Metadata } from "next";
 
 interface PageProps {
@@ -52,6 +53,16 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (slug === "ucook") {
     return (
       <UCookCaseStudy
+        project={project}
+        nextProject={nextProject}
+        prevProject={prevProject}
+      />
+    );
+  }
+
+  if (slug === "flanksource") {
+    return (
+      <FlanksourceCaseStudy
         project={project}
         nextProject={nextProject}
         prevProject={prevProject}
