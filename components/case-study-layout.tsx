@@ -3,7 +3,7 @@
 import React from "react";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ExternalLink, Target, Search, Lightbulb, Layers, BarChart3, BookOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 
 interface CaseStudyLayoutProps {
   project: Project;
@@ -11,51 +11,33 @@ interface CaseStudyLayoutProps {
   prevProject?: Project;
 }
 
-function SectionHeader({ icon: Icon, title }: { icon: React.ElementType; title: string }) {
-  return (
-    <div className="bg-white rounded-xl px-6 py-5 mb-8 flex items-center gap-3 shadow-sm border border-border/40">
-      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#09332C]/8">
-        <Icon size={20} className="text-[#09332C]" />
-      </div>
-      <h2 className="text-xl md:text-2xl font-semibold text-[#09332C]">{title}</h2>
-    </div>
-  );
-}
-
-export function CaseStudyLayout({
-  project,
-  nextProject,
-  prevProject,
-}: CaseStudyLayoutProps) {
+export function CaseStudyLayout({ project, nextProject, prevProject }: CaseStudyLayoutProps) {
   return (
     <div className="min-h-screen">
-      {/* ── Hero ── */}
-      <section className="bg-[#09332C] text-[#F7EDDA]">
-        <div className="max-w-6xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-28">
+      {/* Hero */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-28">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm text-[#F7EDDA]/60 hover:text-[#FFA74F] transition-colors duration-200 mb-12 group"
+            className="inline-flex items-center gap-2 text-sm text-foreground/30 hover:text-[#F0531C] transition-colors duration-200 mb-16 group"
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
-            Back to projects
+            Back
           </Link>
 
           <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map((tag) => (
-              <span key={tag} className="text-xs px-3 py-1.5 rounded-full border border-[#F7EDDA]/20 text-[#F7EDDA]/70">
+              <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/40">
                 {tag}
               </span>
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F7EDDA] mb-4 tracking-tight text-balance">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight mb-4">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-[#FFA74F] font-medium max-w-3xl leading-relaxed mb-6">
+          <p className="text-xl text-[#F0531C] font-medium mb-6">
             {project.subtitle}
-          </p>
-          <p className="text-base text-[#F7EDDA]/70 max-w-2xl leading-relaxed">
-            {project.summary}
           </p>
 
           {project.externalLink && (
@@ -63,127 +45,115 @@ export function CaseStudyLayout({
               href={project.externalLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-[#F0531C] text-white text-sm font-medium rounded-full hover:bg-[#F0531C]/90 hover:shadow-lg transition-all duration-200 group"
+              className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-[#F0531C] text-white text-sm font-medium rounded-full hover:bg-[#F0531C]/90 transition-all duration-200 group"
             >
-              View Interactive Experience
+              View live
               <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
             </Link>
           )}
 
-          {/* Meta strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-[#F7EDDA]/10">
+          {/* Meta */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-border">
             {[
               { label: "Role", value: project.role },
               { label: "Team", value: project.team },
               { label: "Timeline", value: project.timeline },
-              { label: "Tools", value: project.tools.join(", ") },
+              { label: "Tools", value: project.tools.slice(0, 3).join(", ") },
             ].map((item) => (
               <div key={item.label}>
-                <p className="text-xs text-[#FFA74F] font-medium uppercase tracking-wider mb-1">{item.label}</p>
-                <p className="text-sm text-[#F7EDDA]/80">{item.value}</p>
+                <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">{item.label}</p>
+                <p className="text-sm text-foreground">{item.value}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Key Outcomes Banner ── */}
-      <section className="bg-[#F0531C] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-10">
-          <p className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-4">Key Outcomes</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Outcomes */}
+      <section className="bg-[#09332C]">
+        <div className="max-w-5xl mx-auto px-6 py-10">
+          <p className="text-xs text-[#FFA74F] font-medium uppercase tracking-widest mb-6">Outcomes</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {project.outcomes.map((outcome, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-white/15 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5 font-semibold">{i + 1}</span>
-                <p className="text-sm text-white/90 leading-relaxed">{outcome}</p>
-              </div>
+              <p key={i} className="text-sm text-[#F7EDDA]/70 leading-relaxed">{outcome}</p>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Main Content ── */}
-      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+      {/* Content */}
+      <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
 
         {/* Context */}
-        <section className="mb-20">
-          <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
-            {project.context}
-          </p>
+        <section className="mb-24">
+          <p className="text-lg text-foreground leading-relaxed">{project.context}</p>
         </section>
 
         {/* Goals */}
-        <section className="mb-20">
-          <SectionHeader icon={Target} title="Goals" />
-          <div className="grid sm:grid-cols-2 gap-4">
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Goals</h2>
+          <div className="space-y-6">
             {project.goals.map((goal, i) => (
-              <div key={i} className="flex items-start gap-4 bg-white rounded-xl p-5 border border-border/40 shadow-sm">
-                <span className="text-2xl text-[#F0531C]/30 font-bold leading-none">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-[#09332C] leading-relaxed">{goal}</p>
+              <div key={i} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/70 leading-relaxed">{goal}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Research */}
-        <section className="mb-20">
-          <SectionHeader icon={Search} title="Research" />
-          <p className="text-base text-foreground/80 leading-relaxed">{project.research}</p>
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Research</h2>
+          <p className="text-base text-foreground/70 leading-relaxed">{project.research}</p>
         </section>
 
-        {/* Key Insights */}
-        <section className="mb-20">
-          <SectionHeader icon={Lightbulb} title="Key Insights" />
-          <div className="space-y-4">
+        {/* Insights */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Insights</h2>
+          <div className="space-y-6">
             {project.insights.map((insight, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-4 p-5 rounded-xl bg-white border border-border/40 shadow-sm hover:border-[#F0531C]/30 transition-colors duration-200"
-              >
-                <span className="text-lg text-[#F0531C]/40 font-bold leading-none mt-0.5">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-[#09332C]/80 leading-relaxed">{insight}</p>
+              <div key={i} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/70 leading-relaxed">{insight}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* IA & Flows */}
-        <section className="mb-20">
-          <SectionHeader icon={Layers} title="Information Architecture & Flows" />
-          <p className="text-base text-foreground/80 leading-relaxed">{project.iaFlows}</p>
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Architecture</h2>
+          <p className="text-base text-foreground/70 leading-relaxed">{project.iaFlows}</p>
         </section>
 
         {/* Design */}
-        <section className="mb-20">
-          <div className="bg-[#F7EDDA] rounded-xl p-8">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-[#09332C]/60 mb-6">Design Exploration & Final UI</h2>
-            <p className="text-base text-[#09332C]/80 leading-relaxed mb-4">{project.designExploration}</p>
-            <p className="text-base text-[#09332C]/80 leading-relaxed">{project.finalUI}</p>
-          </div>
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Design</h2>
+          <p className="text-base text-foreground/70 leading-relaxed mb-6">{project.designExploration}</p>
+          <p className="text-base text-foreground/70 leading-relaxed">{project.finalUI}</p>
         </section>
 
         {/* Testing */}
-        <section className="mb-20">
-          <SectionHeader icon={BarChart3} title="Testing & Validation" />
-          <p className="text-base text-foreground/80 leading-relaxed">{project.testing}</p>
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Testing</h2>
+          <p className="text-base text-foreground/70 leading-relaxed">{project.testing}</p>
         </section>
 
         {/* Outcome */}
-        <section className="mb-20">
-          <div className="bg-[#09332C] rounded-xl p-8">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-[#FFA74F] mb-6">Outcome</h2>
-            <p className="text-base text-[#F7EDDA]/80 leading-relaxed">{project.outcome}</p>
-          </div>
+        <section className="mb-24 bg-[#09332C] rounded-lg p-8 md:p-10">
+          <h2 className="text-xs text-[#FFA74F] font-medium uppercase tracking-widest mb-6">Outcome</h2>
+          <p className="text-base text-[#F7EDDA]/70 leading-relaxed">{project.outcome}</p>
         </section>
 
         {/* Reflection */}
-        <section className="mb-20">
-          <SectionHeader icon={BookOpen} title="Reflection" />
-          <div className="space-y-4">
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <div className="space-y-6">
             {project.learnings.map((learning, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 bg-[#F7EDDA] rounded-xl">
-                <span className="text-xs font-semibold text-[#09332C] bg-[#09332C]/10 px-2.5 py-1 rounded flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
-                <p className="text-sm text-[#09332C]/80 leading-relaxed">{learning}</p>
+              <div key={i} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/70 leading-relaxed">{learning}</p>
               </div>
             ))}
           </div>
@@ -191,10 +161,10 @@ export function CaseStudyLayout({
 
         {/* Tools */}
         <section className="mb-16 pb-16 border-b border-border">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/40 mb-4">Tools used</h3>
+          <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Tools</h3>
           <div className="flex flex-wrap gap-2">
             {project.tools.map((tool) => (
-              <span key={tool} className="text-xs px-3 py-1.5 rounded-full bg-white border border-border/40 text-foreground/60">
+              <span key={tool} className="text-xs px-3 py-1.5 rounded-full border border-border text-foreground/40">
                 {tool}
               </span>
             ))}
@@ -202,32 +172,30 @@ export function CaseStudyLayout({
         </section>
       </div>
 
-      {/* ── Navigation ── */}
-      <div className="border-t border-border bg-white">
-        <div className="max-w-4xl mx-auto px-6 py-10">
-          <div className="flex flex-col sm:flex-row justify-between gap-6">
+      {/* Navigation */}
+      <div className="border-t border-border">
+        <div className="max-w-3xl mx-auto px-6 py-10">
+          <div className="flex justify-between">
             {prevProject ? (
               <Link
                 href={`/projects/${prevProject.slug}`}
-                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="group flex items-center gap-3 text-foreground/30 hover:text-foreground transition-colors duration-200"
               >
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-200" />
                 <div>
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Previous</p>
-                  <p className="text-sm group-hover:text-[#F0531C] transition-colors duration-200">{prevProject.title}</p>
+                  <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest">Previous</p>
+                  <p className="text-sm text-foreground group-hover:text-[#F0531C] transition-colors duration-200">{prevProject.title}</p>
                 </div>
               </Link>
-            ) : (
-              <div />
-            )}
+            ) : <div />}
             {nextProject && (
               <Link
                 href={`/projects/${nextProject.slug}`}
-                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200 sm:text-right"
+                className="group flex items-center gap-3 text-foreground/30 hover:text-foreground transition-colors duration-200 text-right"
               >
                 <div>
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Next</p>
-                  <p className="text-sm group-hover:text-[#F0531C] transition-colors duration-200">{nextProject.title}</p>
+                  <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest">Next</p>
+                  <p className="text-sm text-foreground group-hover:text-[#F0531C] transition-colors duration-200">{nextProject.title}</p>
                 </div>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>

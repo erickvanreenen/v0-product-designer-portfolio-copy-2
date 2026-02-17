@@ -15,31 +15,22 @@ export default function ProjectsPage() {
 
   return (
     <div>
-      {/* Header */}
       <section className="bg-white">
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#09332C] mb-4 text-balance">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4">
             Projects
           </h1>
-          <p className="text-foreground/60 max-w-2xl leading-relaxed">
-            A selection of UX/UI design work across e-commerce, mobile apps, and
-            digital products. Each project represents a journey of research,
-            iteration, and thoughtful problem-solving.
+          <p className="text-foreground/50 max-w-lg">
+            UX work across e-commerce, apps and education.
           </p>
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
-        {/* Filters */}
-        <div className="mb-10">
-          <TagFilter
-            tags={allTags}
-            activeTag={activeTag}
-            onTagChange={setActiveTag}
-          />
+      <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
+        <div className="mb-12">
+          <TagFilter tags={allTags} activeTag={activeTag} onTagChange={setActiveTag} />
         </div>
 
-        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
@@ -48,7 +39,7 @@ export default function ProjectsPage() {
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-foreground/40">No projects found for this filter.</p>
+            <p className="text-foreground/30">No projects match this filter.</p>
           </div>
         )}
       </div>

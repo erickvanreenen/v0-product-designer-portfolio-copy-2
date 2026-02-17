@@ -19,14 +19,14 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="group">
-          <span className="text-base font-medium tracking-tight text-foreground group-hover:text-[#F0531C] transition-colors duration-200">
+          <span className="text-sm font-bold tracking-tight text-[#09332C] group-hover:text-[#F0531C] transition-colors duration-200">
             Erick van Reenen
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop */}
         <div className="hidden md:flex items-center gap-1">
           <ul className="flex items-center gap-1">
             {navItems.map((item) => (
@@ -37,7 +37,7 @@ export function Navbar() {
                     "text-sm px-4 py-2 rounded-full transition-all duration-200",
                     pathname === item.href
                       ? "bg-[#09332C] text-[#F7EDDA]"
-                      : "text-foreground/60 hover:text-foreground hover:bg-muted"
+                      : "text-foreground/40 hover:text-foreground"
                   )}
                 >
                   {item.label}
@@ -49,16 +49,16 @@ export function Navbar() {
             href="https://www.linkedin.com/in/erick-van-reenen-b549061a6/"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 p-2 rounded-full text-foreground/60 hover:text-[#F0531C] hover:bg-muted transition-all duration-200"
+            className="ml-2 p-2 text-foreground/30 hover:text-[#F0531C] transition-colors duration-200"
             aria-label="Connect on LinkedIn"
           >
-            <Linkedin size={18} />
+            <Linkedin size={16} />
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-foreground hover:text-[#F0531C] transition-colors duration-200"
+          className="md:hidden p-2 text-foreground/40 hover:text-foreground transition-colors duration-200"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -66,9 +66,9 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border/30 animate-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden bg-background border-b border-border/30">
           <ul className="px-6 py-4 space-y-1">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -79,13 +79,24 @@ export function Navbar() {
                     "block text-base py-3 px-4 rounded-lg transition-all duration-200",
                     pathname === item.href
                       ? "bg-[#09332C] text-[#F7EDDA] font-medium"
-                      : "text-foreground/60 active:bg-muted"
+                      : "text-foreground/40"
                   )}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="https://www.linkedin.com/in/erick-van-reenen-b549061a6/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-base py-3 px-4 text-foreground/40 hover:text-[#F0531C]"
+              >
+                LinkedIn
+              </Link>
+            </li>
           </ul>
         </div>
       )}
