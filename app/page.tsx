@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
+import { RotatingText } from "@/components/rotating-text";
 import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
@@ -11,15 +12,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-6 py-28 md:py-40">
-          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">
-            Senior UX Designer
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#09332C] max-w-2xl tracking-tight">
-            Strategy. Systems. Outcomes.
-          </h1>
-          <p className="text-lg text-foreground/50 mt-6 max-w-xl">
-            E-commerce, omnichannel and EdTech.
-          </p>
+          <RotatingText />
           <div className="flex gap-4 mt-12">
             <Link
               href="/projects"
