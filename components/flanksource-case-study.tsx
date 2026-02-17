@@ -126,10 +126,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
             <p className="text-xs text-foreground/40 uppercase tracking-widest mb-4">Before</p>
             <div className="border border-border overflow-hidden bg-[#f8f8f8]">
               <Image
-                src="/images/flanksource-before.svg"
+                src="/images/flanksource-after.svg"
                 alt="Flanksource original dashboard layout"
-                width={1440}
-                height={900}
+                width={1800}
+                height={1169}
                 className="w-full h-auto"
               />
             </div>
@@ -140,10 +140,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
             <p className="text-xs text-foreground/40 uppercase tracking-widest mb-4">After</p>
             <div className="border border-border overflow-hidden bg-[#f8f8f8]">
               <Image
-                src="/images/flanksource-after.svg"
+                src="/images/flanksource-before.svg"
                 alt="Flanksource redesigned dashboard"
-                width={1800}
-                height={1169}
+                width={1440}
+                height={900}
                 className="w-full h-auto"
               />
             </div>
