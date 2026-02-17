@@ -135,46 +135,50 @@ export const projects: Project[] = [
   {
     slug: "ucook",
     title: "UCOOK",
-    subtitle: "Omnichannel UX optimization for meal kit delivery",
-    tags: ["E-commerce", "Omnichannel", "UX Strategy"],
+    subtitle: "Sign-up usability investigation and funnel redesign",
+    tags: ["E-commerce", "Omnichannel", "UX Strategy", "Redesign"],
     role: "UX/UI Designer",
-    team: "Product Team, Frontend & Backend Developers",
-    timeline: "September 2024 - Present",
-    tools: ["Figma", "Miro", "Jira", "Google Analytics"],
+    team: "Product Team, Frontend & Backend Developers, Data Team",
+    timeline: "2025",
+    tools: ["Figma", "Miro", "Jira", "Google Analytics", "Google Tag Manager", "PostHog", "Maze"],
     thumbnail: "/images/ucook-thumbnail.jpg",
     outcomes: [
-      "Improved user journey consistency",
-      "Enhanced mobile conversion rate",
-      "Streamlined subscription management"
+      "Sign-up completion rate increased from 3.7% to 9.3% (+5.6%)",
+      "Estimated ~R1,296,000/year revenue impact addressed",
+      "Validated measurement framework established",
+      "Reduced proportional abandonment at top of funnel"
     ],
-    summary: "Contributing to the continuous improvement of UCOOK's e-commerce platform, focusing on creating seamless experiences across desktop and mobile for their meal kit delivery service.",
-    context: "UCOOK is a leading meal kit delivery service in South Africa. My role involves optimizing the user experience across their omnichannel platform while balancing multiple brand priorities.",
+    summary: "Self-initiated usability investigation into UCOOK's sign-up flow, uncovering critical conversion issues through mixed-methods research and delivering a redesigned funnel that increased completion from 3.7% to 9.3%.",
+    context: "Silvertree, working on UCOOK -- a subscription-based meal kit service. Customer service and behavioural data indicated users were abandoning sign-up while still expecting deliveries. Over 60 incomplete sign-ups were recorded in a single week, with retention through the sign-up path at just 1.43%.",
     goals: [
-      "Improve subscription conversion funnel",
-      "Enhance meal selection experience",
-      "Optimize mobile checkout flow",
-      "Maintain brand consistency across touchpoints"
+      "Validate whether sign-up was a genuine usability and conversion issue worth prioritising",
+      "Identify where and why users were dropping out of the journey",
+      "Define a clear, measurable happy path sign-up funnel",
+      "Reduce incomplete sign-ups and improve confidence around subscription activation and billing"
     ],
-    research: "Conducted heuristic evaluations, analyzed user behavior data, and performed competitive analysis to identify optimization opportunities within the existing platform.",
+    research: "Led a seven-stage mixed-methods research process: customer service interviews, internal survey (16 respondents), competitive benchmarking (Marley Spoon, Taste Box, Hello Fresh), heuristic evaluation against Nielsen's 10 heuristics, unmoderated testing attempt (Maze), moderated usability testing (3 sessions), and measurement planning with Tag Manager triggers.",
     insights: [
-      "Users wanted more flexibility in subscription options",
-      "Recipe browsing was a key engagement driver",
-      "Mobile users had different needs than desktop users",
-      "Clear delivery information reduced support queries"
+      "Sign-up felt unclear -- users confused subscription activation with simple account creation",
+      "Navigation and orientation issues: users couldn't find meal options or return to previous steps",
+      "Checkout created confusion around subscription vs on-demand ordering and when payment would occur",
+      "All test participants expected to pay immediately, with payment acting as task completion",
+      "56% of first billings occurred 1-5 days after sign-up, reinforcing expectation misalignment",
+      "No clearly defined baseline funnel existed, preventing effective unmoderated testing"
     ],
-    iaFlows: "Mapped existing user journeys and identified friction points. Proposed improvements to information architecture that maintained familiarity while addressing pain points.",
-    designExploration: "Created design iterations focused on conversion optimization while maintaining brand integrity. Tested concepts with users before implementation.",
-    finalUI: "Delivered refined UI components that improved clarity and usability while working within the existing design system constraints.",
-    testing: "Ongoing A/B testing and user feedback collection to validate design decisions and measure impact on key metrics.",
-    outcome: "Continuous improvements showing positive trends in user engagement and conversion metrics.",
+    iaFlows: "Defined a clear separation between quick wins (communication, navigation, UI clarity) and larger structural work to redesign the sign-up funnel into a measurable happy path. Identified a key design decision: whether payment should be included within sign-up, balancing user expectation with operational constraints.",
+    designExploration: "Explored multiple approaches to funnel structure informed by competitive benchmarking patterns -- clearly structured steps with a definitive payment action at the end. Issues from heuristic evaluation clustered into three themes: communication, navigation, and UI optimisation.",
+    finalUI: "Delivered annotated Figma prototypes with interaction documentation covering step transitions, progress behaviour, and error handling. Component-level specifications included scrollIntoView() behaviour, sticky header behaviour, form validation rules, and progress tracking triggers aligned to funnel steps.",
+    testing: "Conducted three moderated usability tests surfacing recurring issues around navigation, plan selection, pricing clarity, and subscription vs on-demand confusion. Defined and implemented Tag Manager triggers across each step for funnel measurement.",
+    outcome: "The redesigned funnel achieved a 9.3% completion rate, up from 3.7% baseline. The old funnel saw 405 users enter step 1 with 91.1% abandoning; the new funnel had 1,994 users enter with abandonment reduced to 75%. More users reached later stages, indicating increased confidence and clarity.",
     learnings: [
-      "Balancing optimization with existing design systems",
-      "Importance of data-informed design decisions",
-      "Value of cross-brand design thinking"
+      "Self-initiated research can drive business priorities -- proactively identifying unmet user needs shifted roadmap focus",
+      "Form friction on mobile is a strategic revenue issue with outsized effect on conversion and trust",
+      "Leading discovery in low-UX maturity environments requires demonstrating value through data, not theory",
+      "Mixed methods research builds unshakeable evidence -- combining qualitative with quantitative created a defensible case for change"
     ],
     images: [
-      { src: "/images/ucook-analysis.jpg", caption: "UX audit and opportunity mapping" },
-      { src: "/images/ucook-mobile.jpg", caption: "Mobile optimization designs", wide: true }
+      { src: "/images/ucook-analysis.jpg", caption: "Research framework and heuristic evaluation findings" },
+      { src: "/images/ucook-mobile.jpg", caption: "Redesigned sign-up funnel with annotated prototypes", wide: true }
     ]
   },
   {

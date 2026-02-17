@@ -3,71 +3,34 @@ import { projects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 import { ArrowRight } from "lucide-react";
 
-const processSteps = [
-  {
-    step: "01",
-    title: "Research",
-    description: "Understanding users, business goals, and market context",
-  },
-  {
-    step: "02",
-    title: "Define",
-    description: "Synthesizing insights into clear problem statements",
-  },
-  {
-    step: "03",
-    title: "Ideate",
-    description: "Exploring multiple solutions through divergent thinking",
-  },
-  {
-    step: "04",
-    title: "Prototype",
-    description: "Creating tangible representations to test concepts",
-  },
-  {
-    step: "05",
-    title: "Test",
-    description: "Validating solutions with real users",
-  },
-  {
-    step: "06",
-    title: "Iterate",
-    description: "Refining based on feedback and learnings",
-  },
-];
-
-const credibilityItems = [
-  "E-commerce across 3+ brands",
-  "App launch from inception",
-  "Team leadership & mentoring",
-  "UX education & teaching",
-];
-
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 4);
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="py-20 md:py-32">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-sm text-muted-foreground mb-4">Good morning</p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-tight text-foreground max-w-3xl text-balance">
-            I&apos;m an experienced UX/UI designer with a passion for how exceptional
-            design impacts users&apos; lives, blending creativity, empathy, and
-            kindness in everything I create.
+      {/* Hero */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 py-28 md:py-40">
+          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-8">
+            Senior UX Designer
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#09332C] max-w-2xl tracking-tight">
+            Strategy. Systems. Outcomes.
           </h1>
-          <div className="flex flex-col sm:flex-row gap-4 mt-10">
+          <p className="text-lg text-foreground/50 mt-6 max-w-xl">
+            E-commerce, omnichannel and EdTech.
+          </p>
+          <div className="flex gap-4 mt-12">
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-sm hover:bg-accent hover:shadow-md transition-all duration-200 group"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#F0531C] text-white text-sm font-medium rounded-full hover:bg-[#F0531C]/90 transition-all duration-200 group"
             >
-              View case studies
+              View work
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-foreground text-sm font-medium rounded-sm hover:bg-muted hover:border-foreground transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[#09332C]/15 text-[#09332C] text-sm font-medium rounded-full hover:bg-[#09332C]/5 transition-all duration-200"
             >
               Get in touch
             </Link>
@@ -75,21 +38,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="py-16 md:py-24 border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between mb-12">
-            <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide">Selected work</h2>
+      {/* Selected Work */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="flex items-end justify-between mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight">Selected work</h2>
             <Link
               href="/projects"
-              className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200 flex items-center gap-1 group"
+              className="text-sm text-foreground/40 hover:text-[#F0531C] transition-colors duration-200 flex items-center gap-1.5 group"
             >
-              View all
+              All projects
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
+          <div className="grid md:grid-cols-2 gap-8">
             {featuredProjects.map((project) => (
               <ProjectCard key={project.slug} project={project} featured />
             ))}
@@ -97,55 +60,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How I Work */}
-      <section className="py-16 md:py-24 border-t border-border/50 bg-card">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-12">How I work</h2>
+      {/* Process */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-16">Process</h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {processSteps.map((step) => (
-              <div key={step.step} className="group p-6 rounded-sm border border-transparent hover:border-border/50 hover:bg-background transition-all duration-200">
-                <span className="text-xs text-accent font-medium">{step.step}</span>
-                <h3 className="text-lg font-medium text-foreground mt-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                  {step.description}
-                </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/50">
+            {[
+              { step: "01", title: "Research", desc: "Users, data, context." },
+              { step: "02", title: "Define", desc: "Insights into problems." },
+              { step: "03", title: "Ideate", desc: "Multiple directions explored." },
+              { step: "04", title: "Prototype", desc: "Tangible, testable concepts." },
+              { step: "05", title: "Test", desc: "Validated with real users." },
+              { step: "06", title: "Iterate", desc: "Refined through feedback." },
+            ].map((step) => (
+              <div key={step.step} className="bg-background p-8">
+                <span className="text-xs text-[#F0531C] font-medium">{step.step}</span>
+                <h3 className="text-lg font-bold text-[#09332C] mt-3">{step.title}</h3>
+                <p className="text-sm text-foreground/50 mt-2">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Credibility Strip */}
-      <section className="py-16 md:py-20 border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-wrap gap-x-12 gap-y-4">
-            {credibilityItems.map((item) => (
-              <span
-                key={item}
-                className="text-sm text-muted-foreground font-medium"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 border-t border-border/50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-xl">
-            <p className="text-sm text-muted-foreground font-medium uppercase tracking-wide mb-4">Contact</p>
-            <h2 className="text-2xl md:text-3xl font-normal text-foreground text-balance leading-snug">
-              If you would like to discuss a project or just say hi, I&apos;m always
-              open to chat.
+      {/* CTA */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="border-t border-border pt-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-4">
+              Open to opportunities.
             </h2>
+            <p className="text-foreground/50 mb-8">
+              Discuss a project or say hello.
+            </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-sm hover:bg-accent hover:shadow-md transition-all duration-200 mt-8 group"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#09332C] text-[#F7EDDA] text-sm font-medium rounded-full hover:bg-[#F0531C] transition-all duration-200 group"
             >
               Get in touch
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />

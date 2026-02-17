@@ -1,0 +1,361 @@
+"use client";
+
+import React from "react";
+import { Project } from "@/lib/projects";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+interface UCookCaseStudyProps {
+  project: Project;
+  nextProject?: Project;
+  prevProject?: Project;
+}
+
+export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseStudyProps) {
+  return (
+    <div className="min-h-screen">
+      {/* Hero */}
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-28">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-sm text-foreground/30 hover:text-[#F0531C] transition-colors duration-200 mb-16 group"
+          >
+            <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
+            Back
+          </Link>
+
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tags.map((tag) => (
+              <span key={tag} className="text-xs px-3 py-1 rounded-full border border-border text-foreground/40">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#09332C] tracking-tight mb-4">
+            {project.title}
+          </h1>
+          <p className="text-xl text-[#F0531C] font-medium mb-6">
+            Sign-up funnel redesign.
+          </p>
+
+          {/* Meta */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-border">
+            {[
+              { label: "Role", value: project.role },
+              { label: "Company", value: "Silvertree (UCOOK)" },
+              { label: "Year", value: project.timeline },
+              { label: "Methods", value: "Mixed methods" },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">{item.label}</p>
+                <p className="text-sm text-foreground">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Key metrics */}
+      <section className="bg-[#09332C]">
+        <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <p className="text-4xl md:text-5xl font-bold text-[#F7EDDA]">3.7%</p>
+              <p className="text-sm text-[#F7EDDA]/40 mt-1">old completion rate</p>
+            </div>
+            <div>
+              <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">9.3%</p>
+              <p className="text-sm text-[#F7EDDA]/40 mt-1">new completion rate</p>
+            </div>
+            <div>
+              <p className="text-4xl md:text-5xl font-bold text-[#FFA74F]">~R1.3M</p>
+              <p className="text-sm text-[#F7EDDA]/40 mt-1">annual revenue at risk</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content */}
+      <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+
+        {/* Opening */}
+        <section className="mb-24">
+          <p className="text-lg text-foreground leading-relaxed">
+            Customer service data showed users completing what they believed was sign-up, then contacting support expecting deliveries. Over 60 incomplete sign-ups in one week. Retention through the path: 1.43%.
+          </p>
+          <p className="text-base text-foreground/50 mt-6">
+            This was not on the roadmap. I initiated the investigation.
+          </p>
+        </section>
+
+        {/* Problem */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">The Problem</h2>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-6">User pain</h3>
+              <ul className="space-y-6">
+                <li className="text-sm text-foreground/70 leading-relaxed">Users confused sign-up with account creation.</li>
+                <li className="text-sm text-foreground/70 leading-relaxed">Could not find meals or navigate back.</li>
+                <li className="text-sm text-foreground/70 leading-relaxed">Subscription vs on-demand was unclear.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xs text-[#09332C] font-medium uppercase tracking-widest mb-6">Business pain</h3>
+              <ul className="space-y-6">
+                <li className="text-sm text-foreground/70 leading-relaxed">60+ incomplete sign-ups per week.</li>
+                <li className="text-sm text-foreground/70 leading-relaxed">~R1.3M/year revenue leaking through funnel.</li>
+                <li className="text-sm text-foreground/70 leading-relaxed">56% of first billings 1-5 days post sign-up.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Goals */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Goals</h2>
+          <div className="space-y-6">
+            {project.goals.map((goal, i) => (
+              <div key={i} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/70 leading-relaxed">{goal}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Constraints */}
+        <section className="mb-24 bg-[#09332C] rounded-lg p-8 md:p-10">
+          <h2 className="text-xs text-[#FFA74F] font-medium uppercase tracking-widest mb-8">Constraints</h2>
+          <div className="space-y-6">
+            <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">No baseline funnel existed for testing.</p>
+            <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Billing logic was complex and misaligned with user models.</p>
+            <p className="text-sm text-[#F7EDDA]/60 leading-relaxed">Earlier payment carried operational refund risk.</p>
+          </div>
+        </section>
+
+        {/* Research */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-4">Research</h2>
+          <p className="text-sm text-foreground/40 mb-10">Seven stages. Mixed methods.</p>
+
+          <div className="space-y-0">
+            {[
+              { step: "01", title: "Customer service interviews", desc: "Tracked complaint categories. Flagged incomplete sign-ups." },
+              { step: "02", title: "Internal survey (n=16)", desc: "55% flagged unclear communication. Sign-up scored 6/10." },
+              { step: "03", title: "Competitive benchmarking", desc: "Marley Spoon, Taste Box, Hello Fresh. Clear step patterns." },
+              { step: "04", title: "Heuristic evaluation", desc: "Nielsen's 10. Three theme clusters identified." },
+              { step: "05", title: "Unmoderated testing (Maze)", desc: "Blocked. No defined happy path to test against." },
+              { step: "06", title: "Moderated usability testing", desc: "Three sessions. Navigation and pricing clarity issues." },
+              { step: "07", title: "Measurement planning", desc: "GTM triggers per funnel step. GA, PostHog, heatmaps." },
+            ].map((step, i, arr) => (
+              <div key={step.step} className="flex gap-6">
+                <div className="flex flex-col items-center">
+                  <span className="text-xs text-[#F0531C] font-bold flex-shrink-0 w-6 text-center pt-0.5">{step.step}</span>
+                  {i < arr.length - 1 && <div className="w-px flex-1 bg-border mt-2" />}
+                </div>
+                <div className="pb-8">
+                  <h3 className="text-sm font-bold text-[#09332C]">{step.title}</h3>
+                  <p className="text-sm text-foreground/50 mt-1">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Key insight callout */}
+        <section className="mb-24 border-l-2 border-[#F0531C] pl-6">
+          <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-3">Critical finding</p>
+          <p className="text-base text-[#09332C] font-bold leading-relaxed">
+            All participants expected to pay immediately. Payment was the task completion signal.
+          </p>
+          <p className="text-sm text-foreground/50 mt-3">
+            This single insight reshaped the solution.
+          </p>
+        </section>
+
+        {/* Insights */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Insights</h2>
+          <div className="space-y-6">
+            {project.insights.map((insight, i) => (
+              <div key={i} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/70 leading-relaxed">{insight}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Solution */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Solution</h2>
+
+          <p className="text-base text-foreground/70 leading-relaxed mb-10">
+            Two workstreams. Quick wins shipped independently. Structural redesign addressed the funnel itself.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-px bg-border">
+            <div className="bg-background p-8">
+              <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Quick wins</h3>
+              <p className="text-sm text-foreground/50">Communication, navigation, UI clarity.</p>
+            </div>
+            <div className="bg-background p-8">
+              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">Structural redesign</h3>
+              <p className="text-sm text-foreground/50">Measurable funnel with payment decision.</p>
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-6">Handoff specifications</h3>
+            <div className="grid sm:grid-cols-2 gap-px bg-border">
+              {[
+                { title: "scrollIntoView()", desc: "Step transitions, error states." },
+                { title: "Sticky header", desc: "Orientation during sign-up." },
+                { title: "Form validation", desc: "Inline errors. Prevent incomplete submits." },
+                { title: "Progress tracking", desc: "GTM triggers per funnel step." },
+              ].map((spec) => (
+                <div key={spec.title} className="bg-background p-6">
+                  <p className="text-sm font-mono font-bold text-[#09332C]">{spec.title}</p>
+                  <p className="text-xs text-foreground/40 mt-1">{spec.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Results */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Results</h2>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
+            {/* Old */}
+            <div>
+              <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-6">Old funnel</h3>
+              <div className="space-y-4">
+                {[
+                  { label: "Entered", users: 405, pct: 100 },
+                  { label: "Step 2", users: 36, pct: 8.9 },
+                  { label: "Completed", users: 15, pct: 3.7 },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <div className="flex justify-between text-xs text-foreground/30 mb-1">
+                      <span>{row.label}</span>
+                      <span>{row.users}</span>
+                    </div>
+                    <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-foreground/15 rounded-full" style={{ width: `${row.pct}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-3xl font-bold text-foreground/20 mt-6">3.7%</p>
+            </div>
+
+            {/* New */}
+            <div>
+              <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-6">New funnel</h3>
+              <div className="space-y-4">
+                {[
+                  { label: "Entered", users: 1994, pct: 100 },
+                  { label: "Step 2", users: 499, pct: 25 },
+                  { label: "Step 3", users: 236, pct: 11.8 },
+                  { label: "Completed", users: 185, pct: 9.3 },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <div className="flex justify-between text-xs text-foreground/30 mb-1">
+                      <span>{row.label}</span>
+                      <span>{row.users}</span>
+                    </div>
+                    <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-[#F0531C] rounded-full" style={{ width: `${row.pct}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-3xl font-bold text-[#09332C] mt-6">9.3%</p>
+            </div>
+          </div>
+
+          {/* Net result */}
+          <div className="border-t border-border pt-10">
+            <p className="text-4xl md:text-5xl font-bold text-[#F0531C]">+5.6%</p>
+            <p className="text-sm text-foreground/50 mt-2 max-w-lg">
+              Absolute increase. Abandonment at top of funnel reduced from 91.1% to 75%. More users reached later stages.
+            </p>
+          </div>
+
+          {/* Pending */}
+          <div className="mt-12 pt-8 border-t border-border">
+            <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Pending</h3>
+            <ul className="space-y-2">
+              <li className="text-sm text-foreground/40">Payment timing decision outcomes.</li>
+              <li className="text-sm text-foreground/40">A/B testing results.</li>
+              <li className="text-sm text-foreground/40">Post-release refund and billing impact.</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Reflection */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Reflection</h2>
+          <div className="space-y-6">
+            {project.learnings.map((learning, i) => (
+              <div key={i} className="flex items-start gap-6">
+                <span className="text-xs text-foreground/20 font-bold mt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-sm text-foreground/70 leading-relaxed">{learning}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Tools */}
+        <section className="mb-16 pb-16 border-b border-border">
+          <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-4">Tools</h3>
+          <div className="flex flex-wrap gap-2">
+            {project.tools.map((tool) => (
+              <span key={tool} className="text-xs px-3 py-1.5 rounded-full border border-border text-foreground/40">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* Navigation */}
+      <div className="border-t border-border">
+        <div className="max-w-3xl mx-auto px-6 py-10">
+          <div className="flex justify-between">
+            {prevProject ? (
+              <Link
+                href={`/projects/${prevProject.slug}`}
+                className="group flex items-center gap-3 text-foreground/30 hover:text-foreground transition-colors duration-200"
+              >
+                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-200" />
+                <div>
+                  <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest">Previous</p>
+                  <p className="text-sm text-foreground group-hover:text-[#F0531C] transition-colors duration-200">{prevProject.title}</p>
+                </div>
+              </Link>
+            ) : <div />}
+            {nextProject && (
+              <Link
+                href={`/projects/${nextProject.slug}`}
+                className="group flex items-center gap-3 text-foreground/30 hover:text-foreground transition-colors duration-200 text-right"
+              >
+                <div>
+                  <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest">Next</p>
+                  <p className="text-sm text-foreground group-hover:text-[#F0531C] transition-colors duration-200">{nextProject.title}</p>
+                </div>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Project } from "@/lib/projects";
 import { ArrowUpRight } from "lucide-react";
 
@@ -10,50 +9,40 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, featured = false }: ProjectCardProps) {
   return (
-    <Link
-      href={`/projects/${project.slug}`}
-      className="group block"
-    >
-      <article className="overflow-hidden">
-        <div className={`relative bg-card border border-border/50 rounded-sm overflow-hidden ${featured ? 'aspect-[16/10]' : 'aspect-[4/3]'} transition-all duration-300 group-hover:border-accent/30 group-hover:shadow-lg`}>
-          <div className="absolute inset-0 bg-muted/50" />
-          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/40 text-sm font-medium">
-            {project.title}
+    <Link href={`/projects/${project.slug}`} className="group block">
+      <article>
+        {/* Thumbnail */}
+        <div className={`relative bg-[#09332C] overflow-hidden ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-3xl md:text-4xl font-bold text-[#F7EDDA]/10 select-none">{project.title}</span>
           </div>
-          <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-300" />
-        </div>
-        
-        <div className="pt-5">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h3 className="text-lg font-medium text-foreground group-hover:text-accent transition-colors duration-200">
-                {project.title}
-              </h3>
-              <p className="text-sm text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
-                {project.subtitle}
-              </p>
+          <div className="absolute top-4 right-4">
+            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <ArrowUpRight size={14} className="text-[#F7EDDA]" />
             </div>
-            <ArrowUpRight 
-              size={20} 
-              className="text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 flex-shrink-0 mt-1" 
-            />
           </div>
-          
-          <div className="flex flex-wrap gap-2 mt-4">
+        </div>
+
+        {/* Content */}
+        <div className="pt-5">
+          <div className="flex flex-wrap gap-1.5 mb-3">
             {project.tags.slice(0, 3).map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2.5 py-1 bg-[#6B7355] text-white rounded-sm transition-colors duration-200 hover:bg-[#C65D3B]"
-              >
-                {tag}
-              </span>
+              <span key={tag} className="text-xs text-foreground/30">{tag}</span>
             ))}
           </div>
-          
+
+          <h3 className="text-lg font-bold text-[#09332C] group-hover:text-[#F0531C] transition-colors duration-200 mb-1">
+            {project.title}
+          </h3>
+          <p className="text-sm text-foreground/50 line-clamp-2">
+            {project.subtitle}
+          </p>
+
           {featured && project.outcomes[0] && (
-            <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-              {project.outcomes[0]}
-            </p>
+            <div className="mt-4 pt-4 border-t border-border">
+              <p className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-1">Key outcome</p>
+              <p className="text-sm text-foreground/50">{project.outcomes[0]}</p>
+            </div>
           )}
         </div>
       </article>

@@ -1,13 +1,9 @@
 import React from "react"
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-
-const _inter = Inter({ subsets: ["latin"] });
-const _sourceSerif = Source_Serif_4({ subsets: ["latin"] });
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Erick van Reenen | UX/UI Designer",
@@ -55,7 +51,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-sans antialiased">
         <Navbar />
-        <main className="pt-20 min-h-screen">{children}</main>
+        <main className="pt-16 min-h-screen">{children}</main>
         <Footer />
         <Analytics />
       </body>

@@ -14,40 +14,33 @@ export default function ProjectsPage() {
     : projects;
 
   return (
-    <div className="py-12 md:py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
-        <header className="mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-foreground mb-4 text-balance">
+    <div>
+      <section className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#09332C] tracking-tight mb-4">
             Projects
           </h1>
-          <p className="text-muted-foreground max-w-2xl leading-relaxed">
-            A selection of UX/UI design work across e-commerce, mobile apps, and
-            digital products. Each project represents a journey of research,
-            iteration, and thoughtful problem-solving.
+          <p className="text-foreground/50 max-w-lg">
+            UX work across e-commerce, apps and education.
           </p>
-        </header>
+        </div>
+      </section>
 
-        {/* Filters */}
+      <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
         <div className="mb-12">
-          <TagFilter
-            tags={allTags}
-            activeTag={activeTag}
-            onTagChange={setActiveTag}
-          />
+          <TagFilter tags={allTags} activeTag={activeTag} onTagChange={setActiveTag} />
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
+        <div className="grid md:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
 
         {filteredProjects.length === 0 && (
-          <p className="text-center text-muted-foreground py-12">
-            No projects found for this filter.
-          </p>
+          <div className="text-center py-20">
+            <p className="text-foreground/30">No projects match this filter.</p>
+          </div>
         )}
       </div>
     </div>
