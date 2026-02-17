@@ -5,7 +5,8 @@ export type ProjectTag =
   | "Redesign" 
   | "UX Strategy" 
   | "Leadership"
-  | "EdTech";
+  | "EdTech"
+  | "Data Dev";
 
 export interface Project {
   slug: string;
@@ -275,45 +276,47 @@ export const projects: Project[] = [
     externalLink: "https://rise.articulate.com/share/XCDWEAquTje11b1vjAzKZahmZziR0gaj#/lessons/rMXP5z-dQk-xwn-pu5qgWJAxQpOXijVW"
   },
   {
-    slug: "pet-heaven",
-    title: "Pet Heaven",
-    subtitle: "E-commerce UX improvements for pet supplies retailer",
-    tags: ["E-commerce", "Omnichannel"],
+    slug: "flanksource",
+    title: "Flanksource",
+    subtitle: "Data dev dashboard redesign",
+    tags: ["Data Dev", "Redesign", "UX Strategy"],
     role: "UX/UI Designer",
-    team: "Product Team, Developers",
-    timeline: "September 2024 - Present",
-    tools: ["Figma", "Miro", "Jira"],
-    thumbnail: "/images/pet-heaven-thumbnail.jpg",
+    team: "Flanksource Product Team",
+    timeline: "2025",
+    tools: ["Figma", "Miro"],
+    thumbnail: "/images/flanksource-after.svg",
     outcomes: [
-      "Improved product discovery",
-      "Enhanced pet profile features",
-      "Streamlined repeat ordering"
+      "Unified dashboard surfacing key system health",
+      "Consolidated five major components into one view",
+      "Improved operational visibility for engineering teams"
     ],
-    summary: "Contributing UX/UI design improvements to Pet Heaven's e-commerce platform, focusing on features that support pet owners in their recurring purchase needs.",
-    context: "Pet Heaven is part of the Silvertree Brands portfolio. My role involves improving the user experience while coordinating design efforts across multiple brands.",
+    summary: "Designed a new dashboard for Flanksource's Mission Control platform, surfacing actionable insights from topology, playbooks, catalog, health checks, and notifications into a single view.",
+    context: "Flanksource began as a Kubernetes consulting firm. Teams were drowning in data but lacked context. They had metrics dashboards, log tools, and Git for config -- but nothing tying them together. Mission Control was built to close that gap.",
     goals: [
-      "Simplify repeat purchase flows",
-      "Improve product recommendations",
-      "Enhance mobile shopping experience"
+      "Surface relevant actionables in one view",
+      "Show general health of services at a glance",
+      "Combine catalog, health checks, and notifications",
+      "Present recent playbooks and catalog insights"
     ],
-    research: "Analyzed user behavior patterns, particularly around repeat purchases and subscription products, to identify optimization opportunities.",
+    research: "Logged into the beta platform to understand each component: Topology, Playbooks, Catalog, Health Checks, and Notifications. Familiarised with data dev terminology and component functions to inform information architecture and visual representation decisions.",
     insights: [
-      "Pet owners have predictable recurring needs",
-      "Product recommendations based on pet profiles increased engagement",
-      "Quick reorder functionality was highly valued"
+      "Engineers needed context, not more data",
+      "Key components were siloed across separate views",
+      "Actionable items were buried in individual tools",
+      "Unfamiliar terminology required deep domain learning"
     ],
-    iaFlows: "Mapped purchase journeys for repeat customers and designed streamlined flows that reduced friction for common tasks.",
-    designExploration: "Explored features that leverage pet profile data to personalize the shopping experience while maintaining simplicity.",
-    finalUI: "Delivered UI improvements that enhanced the core shopping experience while introducing pet-centric personalization features.",
-    testing: "Usability testing focused on repeat purchase scenarios and pet profile features.",
-    outcome: "Ongoing improvements showing positive engagement with new features.",
+    iaFlows: "Mapped how key insights from each component could converge into a single dashboard. Defined which data from playbooks, catalog insights, notifications, and health checks should surface by default.",
+    designExploration: "Explored different data visualisation methods to communicate system health. Moved from wireframes to structural design representations, testing how to balance density with clarity.",
+    finalUI: "Delivered a dashboard design that brings together last-run playbooks, new catalog insights, latest notifications, and failing health checks into a single, scannable interface.",
+    testing: "Reviewed designs with the Flanksource product team. Iterated on information density and visual hierarchy based on feedback.",
+    outcome: "Delivered a cohesive dashboard design that gives engineering teams a single entry point into system health, replacing the need to check five separate views.",
     learnings: [
-      "Personalization adds value when based on real user needs",
-      "Simplifying recurring tasks builds loyalty"
+      "Domain immersion is non-negotiable for unfamiliar products",
+      "Data density requires strict visual hierarchy"
     ],
     images: [
-      { src: "/images/pet-heaven-profiles.jpg", caption: "Pet profile feature design" },
-      { src: "/images/pet-heaven-reorder.jpg", caption: "Quick reorder flow optimization", wide: true }
+      { src: "/images/flanksource-before.svg", caption: "Original dashboard layout" },
+      { src: "/images/flanksource-after.svg", caption: "Redesigned dashboard", wide: true }
     ]
   }
 ];
