@@ -12,6 +12,9 @@ const experience = [
   { title: "UX Designer", company: "YumEase", period: "Jul 2023 - Aug 2024", desc: "Sole designer. Inception to launch." },
   { title: "Visual Team Lead", company: "UNi4 Online", period: "May 2021 - Aug 2024", desc: "Led design team. Built aggregator UX." },
   { title: "Design Director", company: "Poly Nation", period: "Jun 2018 - Apr 2020", desc: "Full production. 40% turnover increase." },
+  { title: "Visual Designer", company: "Stories & Science", period: "Feb 2018 - Feb 2019", desc: "Visual design across brand and digital." },
+  { title: "Clothing Designer & Production Lead", company: "Lucky Friday", period: "Apr 2010 - Oct 2017", desc: "End-to-end design and production." },
+  { title: "Retail Owner", company: "Lucky Friday", period: "Feb 2001 - Apr 2012", desc: "Founded and operated retail business." },
 ];
 
 const education = [
