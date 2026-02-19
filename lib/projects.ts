@@ -323,46 +323,39 @@ export const projects: Project[] = [
   {
     slug: "overture",
     title: "Overture",
-    subtitle: "Event advancing app for promoters",
-    tags: ["App", "Workflow Automation", "UX Strategy"],
+    subtitle: "Promoter documentation and orchestration app",
+    tags: ["App", "Workflow Automation"],
     role: "UX Designer",
     team: "Erick van Reenen (UX), Brent Nygaard (UI)",
-    timeline: "4 weeks (UX 2 weeks / UI 2 weeks)",
+    timeline: "UX 2 weeks / UI 2 weeks",
     tools: ["Figma", "Miro"],
     thumbnail: "/images/overture-thumbnail.jpg",
     outcomes: [
-      "Full UX delivered in two weeks",
-      "Clean handoff to UI designer",
-      "One app for the entire advancing workflow"
+      "Final product signed off in 4 weeks",
+      "Quick iteration skills applied",
+      "Full advancing workflow in one app"
     ],
-    summary: "A passion project. I designed the UX for an app that helps promoters manage the messy coordination between agents and artists before a show.",
-    context: "Live events have a hidden phase called advancing. Promoters juggle rider specs, stage plots, catering and logistics across calls, emails and spreadsheets. It works, but barely. This project was a chance to design something for a world I genuinely care about.",
+    summary: "Promoter app for seamless event documentation gathering. Promoters, agents and artists during advancing.",
+    context: "Advancing is the coordination phase before an event. Documentation flows between promoters, agents and artists. No single tool covered this workflow.",
     goals: [
-      "Capture the full advancing workflow",
-      "Make documentation fast, not painful",
-      "Give each role a clear view of their tasks",
-      "Ship the UX fast, hand off clean"
+      "Gather event documentation seamlessly",
+      "Connect promoters, agents and artists",
+      "Ship fast with clean handoff"
     ],
-    research: "Benchmarked event management tools globally. Spoke to promoters about what actually happens during advancing. Most tools focus on ticketing or production. None cover the coordination layer.",
+    research: "Benchmarked leading event platforms globally. Familiarised with user journeys and deliverables during advancing.",
     insights: [
-      "No tool covers the full advancing flow",
-      "Promoters value speed over feature depth",
-      "Role-based views cut through the noise",
-      "Document exchange is where things break down"
+      "No existing tool covers the full advancing flow",
+      "Speed matters more than feature depth"
     ],
-    iaFlows: "Structured the app around the advancing timeline. Each role sees what they need. Documents flow between promoters, agents and artists without duplication.",
-    designExploration: "Moved fast from wireframes to mid-fidelity. Focused on structure and flow, not polish. Knew from the start that UI was a separate phase.",
-    finalUI: "Handed off mid-fidelity designs covering the full workflow. Brent took them to hi-fi. The split worked well. Clean boundaries, clear ownership.",
-    testing: "Tested flows against real advancing scenarios. Iterated on structure before handoff. Domain feedback shaped the final architecture.",
-    outcome: "Two weeks for UX, two weeks for UI. Four weeks total from kickoff to sign-off. One of the fastest and most enjoyable projects I have worked on.",
+    iaFlows: "",
+    designExploration: "",
+    finalUI: "",
+    testing: "",
+    outcome: "Final product signed off in 4 weeks.",
     learnings: [
-      "Passion projects sharpen your instincts",
-      "Fast delivery needs tight scope, not shortcuts"
+      "Quick iteration demands tight scope"
     ],
-    images: [
-      { src: "/images/overture-flows.jpg", caption: "Advancing workflow and information architecture" },
-      { src: "/images/overture-wireframes.jpg", caption: "Mid-fidelity wireframes for core screens", wide: true }
-    ]
+    images: []
   }
 ];
 

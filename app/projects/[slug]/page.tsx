@@ -3,6 +3,7 @@ import { projects, getProjectBySlug } from "@/lib/projects";
 import { CaseStudyLayout } from "@/components/case-study-layout";
 import { UCookCaseStudy } from "@/components/ucook-case-study";
 import { FlanksourceCaseStudy } from "@/components/flanksource-case-study";
+import { OvertureCaseStudy } from "@/components/overture-case-study";
 import { Metadata } from "next";
 
 interface PageProps {
@@ -63,6 +64,16 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (slug === "flanksource") {
     return (
       <FlanksourceCaseStudy
+        project={project}
+        nextProject={nextProject}
+        prevProject={prevProject}
+      />
+    );
+  }
+
+  if (slug === "overture") {
+    return (
+      <OvertureCaseStudy
         project={project}
         nextProject={nextProject}
         prevProject={prevProject}
