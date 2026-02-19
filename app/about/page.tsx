@@ -15,10 +15,13 @@ const experience = [
 ];
 
 const education = [
+  { title: "AI Fundamentals for UX Design", institution: "UX Design Institute / GCU", year: "2025" },
   { title: "Professional Diploma in UX Design", institution: "UX Design Institute / GCU", year: "2022" },
   { title: "The Creative's Workshop", institution: "Akimbo, Seth Godin", year: "2021" },
   { title: "UX Design Fundamentals", institution: "CalArts", year: "2020" },
   { title: "Visual Elements of UI Design", institution: "CalArts", year: "2020" },
+  { title: "Introduction to Data Science", institution: "IBM", year: "2019" },
+  { title: "Cost & Management Accounting + Financial Accounting", institution: "Institute of Administration and Commerce", year: "1997 - 2000" },
 ];
 
 const skills = [
