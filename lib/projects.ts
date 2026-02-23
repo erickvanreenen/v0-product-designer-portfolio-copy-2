@@ -6,7 +6,8 @@ export type ProjectTag =
   | "UX Strategy" 
   | "Leadership"
   | "EdTech"
-  | "Data Dev";
+  | "Data Dev"
+  | "Workflow Automation";
 
 export interface Project {
   slug: string;
@@ -318,6 +319,43 @@ export const projects: Project[] = [
       { src: "/images/flanksource-before.svg", caption: "Original dashboard layout" },
       { src: "/images/flanksource-after.svg", caption: "Redesigned dashboard", wide: true }
     ]
+  },
+  {
+    slug: "overture",
+    title: "Overture",
+    subtitle: "Promoter documentation and orchestration app",
+    tags: ["App", "Workflow Automation"],
+    role: "UX Designer",
+    team: "Erick van Reenen (UX), Brent Nygaard (UI)",
+    timeline: "UX 2 weeks / UI 2 weeks",
+    tools: ["Figma", "Miro"],
+    thumbnail: "/images/overture-thumbnail.jpg",
+    outcomes: [
+      "Final product signed off in 4 weeks",
+      "Quick iteration skills applied",
+      "Full advancing workflow in one app"
+    ],
+    summary: "Promoter app for seamless event documentation gathering. Promoters, agents and artists during advancing.",
+    context: "Advancing is the coordination phase before an event. Documentation flows between promoters, agents and artists. No single tool covered this workflow.",
+    goals: [
+      "Gather event documentation seamlessly",
+      "Connect promoters, agents and artists",
+      "Ship fast with clean handoff"
+    ],
+    research: "Benchmarked leading event platforms globally. Familiarised with user journeys and deliverables during advancing.",
+    insights: [
+      "No existing tool covers the full advancing flow",
+      "Speed matters more than feature depth"
+    ],
+    iaFlows: "",
+    designExploration: "",
+    finalUI: "",
+    testing: "",
+    outcome: "Final product signed off in 4 weeks.",
+    learnings: [
+      "Quick iteration demands tight scope"
+    ],
+    images: []
   }
 ];
 
