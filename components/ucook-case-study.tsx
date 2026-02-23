@@ -12,6 +12,10 @@ interface UCookCaseStudyProps {
   prevProject?: Project;
 }
 
+const iaImages = [
+  { src: "/images/ucook-ia-mindmap.png", alt: "Information architecture mind map for meal kit subscription sign-up process", caption: "Sign-up process IA. User information, meal preferences, payment, confirmation.", w: 1340, h: 660 },
+];
+
 const wireframes = [
   { src: "/images/ucook-wf-signup-flow.png", alt: "Full sign-up flow wireframe showing 6-step funnel", caption: "Redesigned sign-up funnel. Six steps. Single page.", w: 780, h: 1520 },
   { src: "/images/ucook-wf-address.png", alt: "Step 5: Delivery address form with Google Places", caption: "Step 5. Delivery address.", w: 1040, h: 1140 },
@@ -20,28 +24,28 @@ const wireframes = [
 ];
 
 export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseStudyProps) {
-  const [showModal, setShowModal] = useState(false);
+  const [activeModal, setActiveModal] = useState<"ia" | "wireframes" | null>(null);
 
-  const closeModal = useCallback(() => setShowModal(false), []);
+  const closeModal = useCallback(() => setActiveModal(null), []);
 
   useEffect(() => {
-    if (!showModal) return;
+    if (!activeModal) return;
     const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeModal(); };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKey);
     return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", handleKey); };
-  }, [showModal, closeModal]);
+  }, [activeModal, closeModal]);
 
   return (
     <>
     {/* Modal */}
-    {showModal && (
+    {activeModal && (
       <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" onClick={closeModal}>
         <div className="absolute top-4 right-4 z-10">
           <button
             onClick={closeModal}
             className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-            aria-label="Close wireframes"
+            aria-label="Close"
           >
             <X size={20} />
           </button>
@@ -50,13 +54,13 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           className="h-full overflow-y-auto py-12 px-4 md:px-8"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="max-w-2xl mx-auto space-y-10">
-            {wireframes.map((wf, i) => (
+          <div className={`mx-auto space-y-10 ${activeModal === "ia" ? "max-w-4xl" : "max-w-2xl"}`}>
+            {(activeModal === "ia" ? iaImages : wireframes).map((img, i) => (
               <div key={i}>
                 <div className="bg-white overflow-hidden">
-                  <Image src={wf.src} alt={wf.alt} width={wf.w} height={wf.h} className="w-full h-auto" />
+                  <Image src={img.src} alt={img.alt} width={img.w} height={img.h} className="w-full h-auto" />
                 </div>
-                <p className="text-xs text-white/40 mt-3">{wf.caption}</p>
+                <p className="text-xs text-white/40 mt-3">{img.caption}</p>
               </div>
             ))}
           </div>
@@ -240,6 +244,26 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
           </div>
         </section>
 
+        {/* Information Architecture */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Information Architecture</h2>
+          <div className="border border-border overflow-hidden bg-white aspect-[2/1]">
+            <Image
+              src="/images/ucook-ia-mindmap.png"
+              alt="Information architecture mind map for meal kit subscription sign-up process"
+              width={1340}
+              height={660}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+          <button
+            onClick={() => setActiveModal("ia")}
+            className="mt-4 text-xs font-medium text-[#F0531C] hover:text-[#09332C] transition-colors duration-200"
+          >
+            View full diagram
+          </button>
+        </section>
+
         {/* Solution */}
         <section className="mb-24">
           <h2 className="text-3xl font-bold text-[#09332C] tracking-tight mb-10">Solution</h2>
@@ -270,7 +294,7 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
               ))}
             </div>
             <button
-              onClick={() => setShowModal(true)}
+              onClick={() => setActiveModal("wireframes")}
               className="mt-4 text-xs font-medium text-[#F0531C] hover:text-[#09332C] transition-colors duration-200"
             >
               View wireframes
