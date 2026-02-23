@@ -3,6 +3,7 @@
 import React from "react";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface UCookCaseStudyProps {
@@ -206,6 +207,67 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
             <div className="bg-background p-8">
               <h3 className="text-xs text-[#F0531C] font-medium uppercase tracking-widest mb-4">Structural redesign</h3>
               <p className="text-sm text-foreground/50">Measurable funnel with payment decision.</p>
+            </div>
+          </div>
+
+          {/* Wireframes */}
+          <div className="mt-16">
+            <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-8">Wireframes</h3>
+            
+            {/* Full flow */}
+            <div className="mb-8">
+              <div className="border border-border overflow-hidden bg-white">
+                <Image
+                  src="/images/ucook-wf-signup-flow.png"
+                  alt="Full sign-up flow wireframe showing 6-step funnel"
+                  width={780}
+                  height={1520}
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className="text-xs text-foreground/30 mt-3">Redesigned sign-up funnel. Six steps. Single page.</p>
+            </div>
+
+            {/* Address + Payment side by side */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div>
+                <div className="border border-border overflow-hidden bg-white">
+                  <Image
+                    src="/images/ucook-wf-address.png"
+                    alt="Step 5: Delivery address form with Google Places"
+                    width={1040}
+                    height={1140}
+                    className="w-full h-auto"
+                  />
+                </div>
+                <p className="text-xs text-foreground/30 mt-3">Step 5. Delivery address.</p>
+              </div>
+              <div>
+                <div className="border border-border overflow-hidden bg-white">
+                  <Image
+                    src="/images/ucook-wf-payment.png"
+                    alt="Step 6: Payment details form with R1 verification note"
+                    width={1040}
+                    height={1040}
+                    className="w-full h-auto"
+                  />
+                </div>
+                <p className="text-xs text-foreground/30 mt-3">Step 6. Payment details.</p>
+              </div>
+            </div>
+
+            {/* Confirmation */}
+            <div className="mb-8">
+              <div className="border border-border overflow-hidden bg-white">
+                <Image
+                  src="/images/ucook-wf-confirmation.png"
+                  alt="Confirmation page showing payment, address, and delivery review"
+                  width={1000}
+                  height={1160}
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className="text-xs text-foreground/30 mt-3">Confirmation. Review before activating subscription.</p>
             </div>
           </div>
 
