@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Project } from "@/lib/projects";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
 interface UCookCaseStudyProps {
   project: Project;
@@ -12,8 +12,57 @@ interface UCookCaseStudyProps {
   prevProject?: Project;
 }
 
+const wireframes = [
+  { src: "/images/ucook-wf-signup-flow.png", alt: "Full sign-up flow wireframe showing 6-step funnel", caption: "Redesigned sign-up funnel. Six steps. Single page.", w: 780, h: 1520 },
+  { src: "/images/ucook-wf-address.png", alt: "Step 5: Delivery address form with Google Places", caption: "Step 5. Delivery address.", w: 1040, h: 1140 },
+  { src: "/images/ucook-wf-payment.png", alt: "Step 6: Payment details form with R1 verification note", caption: "Step 6. Payment details.", w: 1040, h: 1040 },
+  { src: "/images/ucook-wf-confirmation.png", alt: "Confirmation page showing payment, address, and delivery review", caption: "Confirmation. Review before activating subscription.", w: 1000, h: 1160 },
+];
+
 export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseStudyProps) {
+  const [showModal, setShowModal] = useState(false);
+
+  const closeModal = useCallback(() => setShowModal(false), []);
+
+  useEffect(() => {
+    if (!showModal) return;
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeModal(); };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKey);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", handleKey); };
+  }, [showModal, closeModal]);
+
   return (
+    <>
+    {/* Modal */}
+    {showModal && (
+      <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" onClick={closeModal}>
+        <div className="absolute top-4 right-4 z-10">
+          <button
+            onClick={closeModal}
+            className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            aria-label="Close wireframes"
+          >
+            <X size={20} />
+          </button>
+        </div>
+        <div
+          className="h-full overflow-y-auto py-12 px-4 md:px-8"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="max-w-2xl mx-auto space-y-10">
+            {wireframes.map((wf, i) => (
+              <div key={i}>
+                <div className="bg-white overflow-hidden">
+                  <Image src={wf.src} alt={wf.alt} width={wf.w} height={wf.h} className="w-full h-auto" />
+                </div>
+                <p className="text-xs text-white/40 mt-3">{wf.caption}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
     <div className="min-h-screen">
       {/* Hero */}
       <section className="bg-white">
@@ -212,63 +261,20 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
 
           {/* Wireframes */}
           <div className="mt-16">
-            <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-8">Wireframes</h3>
-            
-            {/* Full flow */}
-            <div className="mb-8">
-              <div className="border border-border overflow-hidden bg-white">
-                <Image
-                  src="/images/ucook-wf-signup-flow.png"
-                  alt="Full sign-up flow wireframe showing 6-step funnel"
-                  width={780}
-                  height={1520}
-                  className="w-full h-auto"
-                />
-              </div>
-              <p className="text-xs text-foreground/30 mt-3">Redesigned sign-up funnel. Six steps. Single page.</p>
-            </div>
-
-            {/* Address + Payment side by side */}
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div>
-                <div className="border border-border overflow-hidden bg-white">
-                  <Image
-                    src="/images/ucook-wf-address.png"
-                    alt="Step 5: Delivery address form with Google Places"
-                    width={1040}
-                    height={1140}
-                    className="w-full h-auto"
-                  />
+            <h3 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-6">Wireframes</h3>
+            <div className="grid grid-cols-4 gap-3">
+              {wireframes.map((wf, i) => (
+                <div key={i} className="border border-border overflow-hidden bg-white aspect-[3/4]">
+                  <Image src={wf.src} alt={wf.alt} width={wf.w} height={wf.h} className="w-full h-full object-cover object-top" />
                 </div>
-                <p className="text-xs text-foreground/30 mt-3">Step 5. Delivery address.</p>
-              </div>
-              <div>
-                <div className="border border-border overflow-hidden bg-white">
-                  <Image
-                    src="/images/ucook-wf-payment.png"
-                    alt="Step 6: Payment details form with R1 verification note"
-                    width={1040}
-                    height={1040}
-                    className="w-full h-auto"
-                  />
-                </div>
-                <p className="text-xs text-foreground/30 mt-3">Step 6. Payment details.</p>
-              </div>
+              ))}
             </div>
-
-            {/* Confirmation */}
-            <div className="mb-8">
-              <div className="border border-border overflow-hidden bg-white">
-                <Image
-                  src="/images/ucook-wf-confirmation.png"
-                  alt="Confirmation page showing payment, address, and delivery review"
-                  width={1000}
-                  height={1160}
-                  className="w-full h-auto"
-                />
-              </div>
-              <p className="text-xs text-foreground/30 mt-3">Confirmation. Review before activating subscription.</p>
-            </div>
+            <button
+              onClick={() => setShowModal(true)}
+              className="mt-4 text-xs font-medium text-[#F0531C] hover:text-[#09332C] transition-colors duration-200"
+            >
+              View wireframes
+            </button>
           </div>
 
           <div className="mt-10">
@@ -419,5 +425,6 @@ export function UCookCaseStudy({ project, nextProject, prevProject }: UCookCaseS
         </div>
       </div>
     </div>
+    </>
   );
 }
