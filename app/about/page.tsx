@@ -38,6 +38,11 @@ const tools = [
   "Articulate 360", "Google Suite",
 ];
 
+const aiTools = [
+  "Perplexity", "ChatGPT", "Claude", "NotebookLM",
+  "Figma AI (Pencil)", "Figma Make", "Stitch by Google",
+];
+
 export default function AboutPage() {
   return (
     <div>
@@ -106,6 +111,18 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* AI Tools */}
+        <section className="mb-24 pb-24 border-b border-border">
+          <h2 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-6">AI Tools</h2>
+          <div className="flex flex-wrap gap-2">
+            {aiTools.map((tool) => (
+              <span key={tool} className="text-sm px-3 py-1.5 rounded-full border border-border text-foreground/60">
+                {tool}
+              </span>
+            ))}
           </div>
         </section>
 
