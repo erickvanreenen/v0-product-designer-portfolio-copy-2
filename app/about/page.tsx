@@ -39,12 +39,8 @@ const tools = [
 ];
 
 const aiTools = [
-  { activity: "Research", tools: "Perplexity" },
-  { activity: "Research + Documentation", tools: "ChatGPT" },
-  { activity: "Analysis", tools: "Claude, NotebookLM" },
-  { activity: "Wireframing", tools: "Figma AI (Pencil)" },
-  { activity: "Design Systems", tools: "Figma" },
-  { activity: "Component Iteration + PoC", tools: "Figma Make, Stitch by Google" },
+  "Perplexity", "ChatGPT", "Claude", "NotebookLM",
+  "Figma AI (Pencil)", "Figma Make", "Stitch by Google",
 ];
 
 export default function AboutPage() {
@@ -120,13 +116,12 @@ export default function AboutPage() {
 
         {/* AI Tools */}
         <section className="mb-24 pb-24 border-b border-border">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-12">AI Tools</h2>
-          <div className="space-y-6">
-            {aiTools.map((item) => (
-              <div key={item.activity} className="flex items-start gap-8">
-                <span className="text-sm text-foreground/30 w-48 flex-shrink-0 pt-0.5">{item.activity}</span>
-                <p className="text-sm font-medium text-foreground">{item.tools}</p>
-              </div>
+          <h2 className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-6">AI Tools</h2>
+          <div className="flex flex-wrap gap-2">
+            {aiTools.map((tool) => (
+              <span key={tool} className="text-sm px-3 py-1.5 rounded-full border border-border text-foreground/60">
+                {tool}
+              </span>
             ))}
           </div>
         </section>
