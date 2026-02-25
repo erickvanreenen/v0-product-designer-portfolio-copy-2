@@ -287,7 +287,7 @@ export const projects: Project[] = [
     tools: ["Figma", "Miro"],
     thumbnail: "/images/flanksource-after.svg",
     outcomes: [
-      "Unified dashboard surfacing key system health",
+      "Unified dashboard communicating key system health metrics",
       "Consolidated five major components into one view",
       "Improved operational visibility for engineering teams"
     ],
