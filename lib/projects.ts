@@ -282,7 +282,7 @@ export const projects: Project[] = [
     subtitle: "Data dev dashboard redesign",
     tags: ["Data Dev", "Redesign", "UX Strategy"],
     role: "UX/UI Designer",
-    team: "Flanksource Product Team",
+    team: "Nygaard Design",
     timeline: "2025",
     tools: ["Figma", "Miro"],
     thumbnail: "/images/flanksource-after.svg",
