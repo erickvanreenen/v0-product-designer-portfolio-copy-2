@@ -131,7 +131,7 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#09332C] tracking-tight mb-12">Experience</h2>
           <div className="space-y-0">
             {experience.map((exp, i, arr) => (
-              <div key={exp.company} className="flex gap-6">
+              <div key={`${exp.company}-${exp.title}`} className="flex gap-6">
                 <div className="flex flex-col items-center">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#F0531C] flex-shrink-0 mt-1.5" />
                   {i < arr.length - 1 && <div className="w-px flex-1 bg-border" />}
