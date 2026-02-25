@@ -42,17 +42,24 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
           {/* Meta */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-border">
-            {[
-              { label: "Role", value: project.role },
-              { label: "Team", value: project.team },
-              { label: "Timeline", value: project.timeline },
-              { label: "Tools", value: project.tools.join(", ") },
-            ].map((item) => (
-              <div key={item.label}>
-                <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">{item.label}</p>
-                <p className="text-sm text-foreground">{item.value}</p>
-              </div>
-            ))}
+            <div>
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">Role</p>
+              <p className="text-sm text-foreground">{project.role}</p>
+            </div>
+            <div>
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">Team</p>
+              <a href="https://nygaard.design/" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground hover:text-[#F0531C] transition-colors duration-200">
+                {project.team}
+              </a>
+            </div>
+            <div>
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">Timeline</p>
+              <p className="text-sm text-foreground">{project.timeline}</p>
+            </div>
+            <div>
+              <p className="text-xs text-foreground/30 font-medium uppercase tracking-widest mb-1">Tools</p>
+              <p className="text-sm text-foreground">{project.tools.join(", ")}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -74,7 +81,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         {/* Context */}
         <section className="mb-24">
-          <p className="text-lg text-foreground leading-relaxed">{project.context}</p>
+          <p className="text-lg text-foreground leading-relaxed">
+            {project.context.replace("Mission Control was built to close that gap.", "").trim()}{" "}
+            <strong>{"Mission Control was built to close that gap."}</strong>
+          </p>
         </section>
 
         {/* Brief */}
