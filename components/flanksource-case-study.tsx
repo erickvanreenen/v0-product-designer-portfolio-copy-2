@@ -81,7 +81,10 @@ export function FlanksourceCaseStudy({ project, nextProject, prevProject }: Prop
 
         {/* Context */}
         <section className="mb-24">
-          <p className="text-lg text-foreground leading-relaxed">{project.context}</p>
+          <p className="text-lg text-foreground leading-relaxed">
+            {project.context.replace("Mission Control was built to close that gap.", "").trim()}{" "}
+            <strong>{"Mission Control was built to close that gap."}</strong>
+          </p>
         </section>
 
         {/* Brief */}
