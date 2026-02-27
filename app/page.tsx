@@ -1,4 +1,3 @@
-```tsx
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
@@ -108,4 +107,3 @@ export default function HomePage() {
     </div>
   );
 }
-```
